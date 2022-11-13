@@ -53,51 +53,51 @@ Sub Object 1: Steering Wheel
     Name 4 things you'll find on the:    Steering Wheel
         1) paddle shifters
         2) 'cruise control' controls
-        3) 
-        4) 
+        3) car horn
+        4) radio volume controls
     Name 2 things you can do with the:   Steering Wheel
         1) adjust cruise control settings.
-        2)
+        2) turn up/down volume
         
 Sub Object 2: Instrument Cluster
     Name 4 things you'll find on the:   Instrument Cluster
-        1)
-        2)
-        3)
-        4)
+        1) speedometer
+        2) odometer
+        3) tire pressure indicator
+        4) fuel guage
     Name 3 things you can do with the:   Instrument Cluster
-        1)
-        2)
-        3)
+        1) clear trip mileage
+        2) browse display
+        3) read fuel guage
     
 Sub Object 3: Environment Controls
     Name 3 things you'll find on the:    Environment Controls
-        1)
-        2)
-        3)
+        1) a/c controls
+        2) heated seats control
+        3) defrost controls
     Name 3 things you can do with the:   Environment Controls
-        1)
-        2)
-        3)
+        1) turn on/off a/c
+        2) defrost windows
+        3) turn on/off heat for seats
 
 Sub Object 4: Infotainment System
     Name 3 things you'll find on the:    Infotainment System
-        1)
-        2)
-        3)
+        1) radio
+        2) apps
+        3) clock
     Name 3 things you can do with the:   Infotainment System
-        1)
-        2)
-        3)
+        1) setup bluetooth
+        2) play music
+        3) set radio station
 
 Sub Object 5: Seat 
     Name 3 things you'll find on the:    Seat
-        1)
-        2)
-        3)
+        1) seat belt
+        2) seat movement controls
+        3) seat upholstery
     Name 2 things you can do with the:   Seat
-        1)
-        2)
+        1) move seat
+        2) buckle seat belt
 */
 
 /*
@@ -155,59 +155,59 @@ Part 1b Assignment: 1 Step
 */
 
 /*
-Thing 1)
+Thing 1) Cookie Shop
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of staff (int)    
+    2) avg. number of customers (int)
+    3) lbs of cookie dough (float)
+    4) lbs of coffee (float)
+    5) amount of cash on hand (float)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) bake cookies
+    2) decorate cookies
+    3) brew coffee
  */
 
 /*
-Thing 2)
+Thing 2) Lawnmower
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) amount of gasoline (float)
+    2) number of wires (int)
+    3) number of blades (int)
+    4) blade height setting (float)
+    5) rpms of blades (int)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) cut grass
+    2) consume gas
+    3) self propel
  */
 
 /*
-Thing 3)
+Thing 3) Laptop
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) height/width of tower (float)
+    2) number of fans (int)
+    3) amount of ram (int)
+    4) number of usb ports (int)
+    5) number of keys (int)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) display typed words
+    2) calculate formulas
+    3) run software
  */
 
 /*
-Thing 4)
+Thing 4) Nuclear Power Plant
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) amount of water (float)
+    2) temp. of water (float)
+    3) number of generators (int)
+    4) weight of genertor (int)
+    5) number of engineers (int)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) produce heat
+    2) generate steam
+    3) produce electricity
  */
 
  /*
@@ -280,17 +280,17 @@ Define an object that is made of 5 sub-objects.
 */
 
 /*
-Thing 10)
+Thing 10) Airplane
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Cockpit
+    2) Passenger Seats
+    3) Power Plant
+    4) Fuselage
+    5) Landing Gear
 3 things it can do:
-    1)
-    2)
-    3)
+    1) take off
+    2) transport cargo
+    3) land on ground
  */
 
 /*
