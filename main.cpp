@@ -164,7 +164,7 @@ Thing 1) Cookie Shop
     5) amount of cash on hand (float)
 3 things it can do:
     1) bake cookies
-    2) decorate cookies
+    2) sell cookies
     3) brew coffee
  */
 
@@ -280,17 +280,17 @@ Define an object that is made of 5 sub-objects.
 */
 
 /*
-Thing 10) Airplane
+Thing 10) Airport
 5 properties:
-    1) Cockpit
-    2) Passenger Seats
-    3) Power Plant
-    4) Fuselage
-    5) Landing Gear
+    1) Airplane
+    2) Hangar
+    3) Parking Lot
+    4) Control Tower
+    5) Terminal Building
 3 things it can do:
-    1) take off
-    2) transport cargo
-    3) land on ground
+    1) Maintain airplanes
+    2) Transport passenger to destination
+    3) Transport cargo to destination
  */
 
 /*
@@ -385,73 +385,73 @@ Step 3 is written below UDTs 5 - 9
 */
 
 /*
-Thing 5)
+Thing 5) Airplane
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Number of passenger seats (int)
+    2) Total weight of plane (int)
+    3) Length of plane wings (int)
+    4) Number of luggage pieces (int)
+    5) Amount of fuel (int)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) Take off and fly
+    2) Land
+    3) Send data to control tower
  */
 
 /*
-Thing 6)
+Thing 6) Hangar
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Size of hangar (int)
+    2) Number of planes (int)
+    3) Number of maintenance employees (int)
+    4) Number of aircraft jacks
+    5) Height of maintenance platforms (int)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) Wash airplanes
+    2) Perform routine maintenance on airplanes
+    3) Install engine
  */
 
 /*
-Thing 7)
+Thing 7) Parking Lot
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Number of cars (int)
+    2) Number of parking passes (int)
+    3) Size of parking lot (int)
+    4) Number of parking spaces (int)
+    5) Number of parking lot exits (int)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) Park cars
+    2) purchase parking
+    3) Lift barrier arm for entering/exiting cars
  */
 
 /*
-Thing 8)
+Thing 8) Control Tower
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Number of windows (int)
+    2) Number of aircaft trafic controllers (int)
+    3) Height of control tower
+    4) Number of monitors/displays
+    5) Number of radars
 3 things it can do:
-    1)
-    2)
-    3)
+    1) Direct airplane ground movement
+    2) Monitor airplane locations 
+    3) Clear aircraft for takeoff/landing
  */
 
 /*
-Thing 9)
+Thing 9) Terminal Building
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Number of terminals (int)
+    2) Number of airline ticket counters (int)
+    3) Number of TSA emplyees (int)
+    4) Number of security checkpoints (int)
+    5) Size of waiting area (int)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) Check in baggage
+    2) Purchase tickets
+    3) Screen passengers for security purposes
  */
 
 /*
@@ -471,10 +471,16 @@ MOVE THEM BELOW this block comment and put them in numerical order
 After you have MOVED your 10 UDTs, send me a DM with your pull request link.
 I will review the pseudo-code that you have written.
 */
-
-
-
-
+struct CookieShop{};
+struct Lawnmower{};
+struct Laptop{};
+struct NuclearPowerPlant{};
+struct Airplane{};
+struct Hangar{};
+struct ParkingLot{};
+struct ControlTower{};
+struct TerminalBuilding{};
+struct Airport{};
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
