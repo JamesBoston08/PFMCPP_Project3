@@ -107,6 +107,7 @@ in terms of its sub-objects.
 
 Next, write 4 un-related UDTs in plain english:
 */
+
 /*
  example:  
  
@@ -154,62 +155,6 @@ Part 1b Assignment: 1 Step
         'int float double bool char std::string'.
 */
 
-/*
-Thing 1) Cookie Shop
-5 properties:
-    1) number of staff (int)    
-    2) avg. number of customers (int)
-    3) lbs of cookie dough (float)
-    4) lbs of coffee (float)
-    5) amount of cash on hand (float)
-3 things it can do:
-    1) bake cookies
-    2) sell cookies
-    3) brew coffee
- */
-
-/*
-Thing 2) Lawnmower
-5 properties:
-    1) amount of gasoline (float)
-    2) number of wires (int)
-    3) number of blades (int)
-    4) blade height setting (float)
-    5) rpms of blades (int)
-3 things it can do:
-    1) cut grass
-    2) consume gas
-    3) self propel
- */
-
-/*
-Thing 3) Laptop
-5 properties:
-    1) height/width of tower (float)
-    2) number of fans (int)
-    3) amount of ram (int)
-    4) number of usb ports (int)
-    5) number of keys (int)
-3 things it can do:
-    1) display typed words
-    2) calculate formulas
-    3) run software
- */
-
-/*
-Thing 4) Nuclear Power Plant
-5 properties:
-    1) amount of water (float)
-    2) temp. of water (float)
-    3) number of generators (int)
-    4) weight of genertor (int)
-    5) number of engineers (int)
-3 things it can do:
-    1) produce heat
-    2) generate steam
-    3) produce electricity
- */
-
  /*
 Part 1c - Lesson
 You have just finished practicing writing out a UDT that is has 
@@ -256,6 +201,7 @@ Part 1c example:
     these 5 Sub Objects will need to be defined with 5 primitive 
     properties and 3 actions EACH.
 */
+
 /*
 ===================
 Part 1c assignment: 2 steps
@@ -278,20 +224,6 @@ Define an object that is made of 5 sub-objects.
     These 5 sub-objects will not be defined using Primitives, but instead will be their own UDTs 
     you'll define these 5 sub-objects in Part 1d.
 */
-
-/*
-Thing 10) Airport
-5 properties:
-    1) Airplane
-    2) Hangar
-    3) Parking Lot
-    4) Control Tower
-    5) Terminal Building
-3 things it can do:
-    1) Maintain airplanes
-    2) Transport passenger to destination
-    3) Transport cargo to destination
- */
 
 /*
 Part 1d - Lesson
@@ -385,76 +317,6 @@ Step 3 is written below UDTs 5 - 9
 */
 
 /*
-Thing 5) Airplane
-5 properties:
-    1) Number of passenger seats (int)
-    2) Total weight of plane (int)
-    3) Length of plane wings (int)
-    4) Number of luggage pieces (int)
-    5) Amount of fuel (int)
-3 things it can do:
-    1) Take off and fly
-    2) Land
-    3) Send data to control tower
- */
-
-/*
-Thing 6) Hangar
-5 properties:
-    1) Size of hangar (int)
-    2) Number of planes (int)
-    3) Number of maintenance employees (int)
-    4) Number of aircraft jacks
-    5) Height of maintenance platforms (int)
-3 things it can do:
-    1) Wash airplanes
-    2) Perform routine maintenance on airplanes
-    3) Install engine
- */
-
-/*
-Thing 7) Parking Lot
-5 properties:
-    1) Number of cars (int)
-    2) Number of parking passes (int)
-    3) Size of parking lot (int)
-    4) Number of parking spaces (int)
-    5) Number of parking lot exits (int)
-3 things it can do:
-    1) Park cars
-    2) purchase parking
-    3) Lift barrier arm for entering/exiting cars
- */
-
-/*
-Thing 8) Control Tower
-5 properties:
-    1) Number of windows (int)
-    2) Number of aircaft trafic controllers (int)
-    3) Height of control tower
-    4) Number of monitors/displays
-    5) Number of radars
-3 things it can do:
-    1) Direct airplane ground movement
-    2) Monitor airplane locations 
-    3) Clear aircraft for takeoff/landing
- */
-
-/*
-Thing 9) Terminal Building
-5 properties:
-    1) Number of terminals (int)
-    2) Number of airline ticket counters (int)
-    3) Number of TSA emplyees (int)
-    4) Number of security checkpoints (int)
-    5) Size of waiting area (int)
-3 things it can do:
-    1) Check in baggage
-    2) Purchase tickets
-    3) Screen passengers for security purposes
- */
-
-/*
 ===================
 Part 1d assignment: Step 3
 ===================
@@ -471,16 +333,147 @@ MOVE THEM BELOW this block comment and put them in numerical order
 After you have MOVED your 10 UDTs, send me a DM with your pull request link.
 I will review the pseudo-code that you have written.
 */
-struct CookieShop{};
-struct Lawnmower{};
-struct Laptop{};
-struct NuclearPowerPlant{};
-struct Airplane{};
-struct Hangar{};
-struct ParkingLot{};
-struct ControlTower{};
-struct TerminalBuilding{};
-struct Airport{};
+
+/*
+Thing 1) Cookie Shop
+5 properties:
+    1) number of staff (int)    
+    2) avg. number of customers (int)
+    3) lbs of cookie dough (float)
+    4) lbs of coffee (float)
+    5) amount of cash on hand (float)
+3 things it can do:
+    1) bake cookies
+    2) sell cookies
+    3) brew coffee
+*/
+
+/*
+Thing 2) Lawnmower
+5 properties:
+    1) amount of gasoline (float)
+    2) number of wires (int)
+    3) number of blades (int)
+    4) blade height setting (float)
+    5) rpms of blades (int)
+3 things it can do:
+    1) cut grass
+    2) consume gas
+    3) self propel
+ */
+
+/*
+Thing 3) Laptop
+5 properties:
+    1) height/width of tower (float)
+    2) number of fans (int)
+    3) amount of ram (int)
+    4) number of usb ports (int)
+    5) number of keys (int)
+3 things it can do:
+    1) display typed words
+    2) calculate formulas
+    3) run software
+ */
+
+/*
+Thing 4) Nuclear Power Plant
+5 properties:
+    1) amount of water (float)
+    2) temp. of water (float)
+    3) number of generators (int)
+    4) weight of generator (float)
+    5) number of engineers (int)
+3 things it can do:
+    1) produce heat
+    2) generate steam
+    3) produce electricity
+ */
+
+/*
+Thing 5) Airplane
+5 properties:
+    1) Number of passenger seats (int)
+    2) Total weight of plane (int)
+    3) Length of plane wings (float)
+    4) Number of luggage pieces (int)
+    5) Amount of fuel (int)
+3 things it can do:
+    1) Take off and fly
+    2) Land
+    3) Send data to control tower
+ */
+
+/*
+Thing 6) Hangar
+5 properties:
+    1) Size of hangar (float)
+    2) Number of planes (int)
+    3) Number of maintenance employees (int)
+    4) Number of aircraft jacks (int)
+    5) Height of maintenance platforms (int)
+3 things it can do:
+    1) Wash airplanes
+    2) Perform routine maintenance on airplanes
+    3) Install engine
+ */
+
+/*
+Thing 7) Parking Lot
+5 properties:
+    1) Number of cars (int)
+    2) Number of parking passes (int)
+    3) Size of parking lot (float)
+    4) Number of parking spaces (int)
+    5) Number of parking lot exits (int)
+3 things it can do:
+    1) Park cars
+    2) purchase parking
+    3) Lift barrier arm for entering/exiting cars
+ */
+
+/*
+Thing 8) Control Tower
+5 properties:
+    1) Number of windows (int)
+    2) Number of aircaft trafic controllers (int)
+    3) Height of control tower (float)
+    4) Number of monitors/displays (int)
+    5) Number of radars (int)
+3 things it can do:
+    1) Direct airplane ground movement
+    2) Monitor airplane locations 
+    3) Clear aircraft for takeoff/landing
+ */
+
+/*
+Thing 9) Terminal Building
+5 properties:
+    1) Number of terminals (int)
+    2) Number of airline ticket counters (int)
+    3) Number of TSA emplyees (int)
+    4) Number of security checkpoints (int)
+    5) Size of waiting area (float)
+3 things it can do:
+    1) Check in baggage
+    2) Purchase tickets
+    3) Screen passengers for security purposes
+ */
+
+/*
+Thing 10) Airport
+5 properties:
+    1) Airplane
+    2) Hangar
+    3) Parking Lot
+    4) Control Tower
+    5) Terminal Building
+3 things it can do:
+    1) Maintain airplanes
+    2) Transport passenger to destination
+    3) Transport cargo to destination
+ */
+
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
