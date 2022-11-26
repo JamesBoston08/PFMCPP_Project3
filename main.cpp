@@ -191,86 +191,201 @@ struct CarWash //                                   1) define an empty struct fo
 Thing 1) Cookie Shop
 5 properties:
     1) number of staff (int)    
-    2) avg. number of customers (int)
-    3) lbs of cookie dough (float)
-    4) lbs of coffee (float)
+    2) avg. earnings per week (dollars) (float)
+    3) avg. amount of cookie dough used per week (lbs) (float)
+    4) avg. amount of coffee used per week (lbs) (float)
     5) amount of cash on hand (float)
 3 things it can do:
     1) bake cookies
-    2) sell cookies
+    2) calculate total charge for customer
     3) brew coffee
 */
 
+struct CookieShop
+{
+//number of staff (int)
+int numberOfStaff = 10;
+//avg.earnings per week (dollars) (float)
+float avgEarningsPerWeek = 1500.50f;
+//avg. amount of cookie dough per week (lbs.) (float)
+float avgCookieDoughPerWeek = 20.5f;
+//avg. amount of coffee per week (lbs.) (float)
+float avgCoffeePerWeek = 17.8f;
+//amount of cash on hand (dollars) (float)
+float cashOnHand = 2447.89f;
+
+//bake cookies
+void bakeCookies(int amountOfChocolateChips, int numOfEggs = 10);
+//calculate total charge for customer
+float calculateTotalCustomerCharge(float cookiePrice = 1.95f, float coffeePrice = 3.15f);
+//brew coffee
+void brewCoffee(bool coffeeMakerOn = false, int coffeeUsedPerCup = 2);
+};
+
 /*
-Thing 2) Lawnmower
+Thing 2) LawnMower
 5 properties:
-    1) amount of gasoline (float)
+    1) amount of gasoline (gallon) (float)
     2) number of wires (int)
     3) number of blades (int)
-    4) blade height setting (float)
+    4) blade height setting (inches) (float)
     5) rpms of blades (int)
 3 things it can do:
     1) cut grass
     2) consume gas
     3) self propel
  */
+struct LawnMower
+{
+//amount of gasoline (gallon) (float)
+float amountOfGas = 3.00f;
+//number of wires (int)
+int numOfWires = 20;
+//number of blades (int)
+int numOfBlades = 3; 
+//blade height setting (inches) (float)
+float bladeHeight = 2.5f;
+//rpms of blades (int)
+int rpmsOfBlades = 3000;
 
+//cut grass
+void cutGrass(bool engineOn = false, bool engineHandleBarPressedDown = false);
+//consume gas
+void consumeGas(bool engineOn = false);
+//self propel
+void selfPropel(bool engineOn = false, bool selfPropelHandleBarPressedDown = false);
+};
 /*
 Thing 3) Laptop
 5 properties:
-    1) height/width of tower (float)
+    1) height of tower (inches) (int)
     2) number of fans (int)
-    3) amount of ram (int)
+    3) amount of ram (GB)(int)
     4) number of usb ports (int)
     5) number of keys (int)
 3 things it can do:
-    1) display typed words
-    2) calculate formulas
+    1) display letters typed
+    2) multiply numbers
     3) run software
  */
+struct Laptop
+{
+//height of tower (inches) (int)
+int towerHeight = 13;
+//number of fans (int)
+int numOfFans = 3;
+//amount of ram (GB)(int)
+int amountOfRam = 16;
+//number of usb ports (int)
+int numOfUSBPorts = 6;
+//number of keys (int)
+int numOfKeys = 120;
 
+//display letters typed
+void typeLetter(bool isLetterKeyPressed);
+//multiply numbers
+int productOfNumbers(int num1, int num2);
+//run software
+void runSoftware(bool hasDoubleClickedIcon);
+};
 /*
 Thing 4) Nuclear Power Plant
 5 properties:
-    1) amount of water (float)
+    1) amount of water used (gallons per mega-watt hr.) (float)
     2) temp. of water (float)
     3) number of generators (int)
-    4) weight of generator (float)
+    4) weight of generator (tons) (float)
     5) number of engineers (int)
 3 things it can do:
     1) produce heat
     2) generate steam
     3) produce electricity
  */
+struct NuclearPowerPlant
+{
+//amount of water used (gallons per mega-watt hr.) (float)
+float amountOfWaterUsed = 375.5f;
+//temp. of water (celcius) (float)
+float tempOfWater = 284.8f;
+//number of generators (int)
+int numOfGenerators = 3;
+//weight of generator (tons) (float)
+float weightOfGenerators = 389.79f;
+//number of engineers (int)
+int numOfEngineers = 100;
 
+//produce heat
+//void produceHeat(bool isnuclearChainReactionSuccessful);
+//generate steam
+//void generateSteam( )
+//produce electricity
+};
 /*
 Thing 5) Airplane
 5 properties:
     1) Number of passenger seats (int)
-    2) Total weight of plane (int)
-    3) Length of plane wings (float)
+    2) Total weight of plane (lbs.) (float)
+    3) Length of plane wings (meters) (float)
     4) Number of luggage pieces (int)
-    5) Amount of fuel (int)
+    5) Amount of fuel (gallons) (int)
 3 things it can do:
     1) Take off and fly
-    2) Land
+    2) Land 
     3) Send data to control tower
  */
+struct Airplane
+{
+//Number of passenger seats (int)
+int numOfPassengerSeats = 180;
+//Total weight of plane (lbs.) (float)
+float totalWeightOfPlane = 92354.67f;
+//Length of plane wings (meters) (float)
+float lengthOfPlaneWings = 33.5f;
+//Number of luggage pieces (int)
+int numOfLuggagePieces = 225;
+//Amount of fuel (gallons) (int)
+int amountOfFuel = 20000;
 
+//Take off
+void takeOff(bool isRunwayClear, bool isTakeOffSpeedReached);
+//Land
+void land(bool isLandingSpeedReached, bool areWheelsDeployed);
+//Send data to control tower
+//void sendDataToContolTower() 
+};
 /*
 Thing 6) Hangar
 5 properties:
-    1) Size of hangar (float)
+    1) Size of hangar (feet) (float)
     2) Number of planes (int)
     3) Number of maintenance employees (int)
     4) Number of aircraft jacks (int)
-    5) Height of maintenance platforms (int)
+    5) Max height of maintenance platforms (feet) (int)
 3 things it can do:
     1) Wash airplanes
     2) Perform routine maintenance on airplanes
     3) Install engine
  */
+struct Hangar
+{
+//Size of hangar (feet) (float)
+float hangarSize = 8000.0f;
+//Number of planes (int)
+int numOfPlanes = 3;
+//Number of maintenance employees (int)
+int numOfMaintenanceEmployees = 100;
+//Number of aircraft jacks (int)
+int numOfAircraftJacks = 12;
+//Max height of maintenance platforms (feet) (int)
+int maxHeightOfMaintenancePlatform = 12;
 
+//Wash airplanes
+void washPlane(int numOfEmployeesWashing, int hrsNeededToWashPlane);
+//Perform routine maintenance on airplanes
+void routinePlaneMaintenance(int hrsNeededtoPerformMaintenance, int numOfEmployeesPerformingMaintenace);
+//Install engine
+void installEngine(int numOfEmployeesInstalEngine, int hrsNeededToInstallEngine);
+};
 /*
 Thing 7) Parking Lot
 5 properties:
@@ -282,23 +397,61 @@ Thing 7) Parking Lot
 3 things it can do:
     1) Park cars
     2) purchase parking
-    3) Lift barrier arm for entering/exiting cars
+    3) Lift barrier arm for entering cars
  */
+struct ParkingLot
+{
+//Number of cars (int)
+int numOfCars = 3000;
+//Number of parking passes (int)
+int numOfParkingPasses = 2687;
+//Size of parking lot (acres)(float)
+float sizeOfParkingLot = 12.3f;
+//Number of parking spaces (int)
+int numOfParkingSpaces = 3500;
+//Number of parking lot exits (int)
+int numOfParkingLotExits = 5;
 
+//Park cars
+void parkCars(bool isOpenParkingSpace);
+//Purchase parking
+void purchaseParking(int totalCostOfTicket, bool isParkingPaid);
+//Lift barrier arm for entering cars
+void (bool isTicketButtonPressed);
+}
 /*
 Thing 8) Control Tower
 5 properties:
     1) Number of windows (int)
     2) Number of aircaft trafic controllers (int)
-    3) Height of control tower (float)
+    3) Height of control tower (feet) (float)
     4) Number of monitors/displays (int)
     5) Number of radars (int)
 3 things it can do:
-    1) Direct airplane ground movement
-    2) Monitor airplane locations 
-    3) Clear aircraft for takeoff/landing
+    1) Provide airplance clearance to move from gate
+    2) Monitor airplane during flight
+    3) Clear airplane for landing
  */
+struct ControlTower
+{
+//Number of windows (int)
+int numOfWindows = 40;
+//Number of aircaft trafic controllers (int)
+int numOfAirTarfficControllers = 8;
+//Height of control tower (feet) (float)
+float controlTowerHeight = 369.5f;
+//Number of monitors/displays (int)
+int numOfDisplays = 50;
+//Number of radars (int)
+int numOfRadars = 2;
 
+//Provide airplance clearance to move from gate
+void directPlaneOnGround(bool hasSentPushBackClearence, int timeToPushBackFromGate);
+//Monitor airplane during flight 
+void monitorPlaneFlight(float planeSpeed, float planeAttitude, std::string directionOfMovement);
+//Clear airplane for landing
+void clearPlaneForLanding(bool hasSentLandingClearance, bool hasReachedLandingSpeed);
+};
 /*
 Thing 9) Terminal Building
 5 properties:
@@ -306,13 +459,32 @@ Thing 9) Terminal Building
     2) Number of airline ticket counters (int)
     3) Number of TSA emplyees (int)
     4) Number of security checkpoints (int)
-    5) Size of waiting area (float)
+    5) Number of gates (int)
 3 things it can do:
     1) Check in baggage
     2) Purchase tickets
     3) Screen passengers for security purposes
  */
+struct TerminalBuilding
+{
+//Number of terminals (int)
+int numOfTerminals = 2;
+//Number of airline ticket counters (int)
+int numOfTicketCounters = 15;
+//Number of TSA emplyees (int)
+int numofTSAEmplyees = 100;
+//Number of security checkpoints (int)
+int numOfSecurityCheckpoints = 10;
+//Number of gates (int)
+int numOfGates = 120;
 
+//Check in baggage
+void checkBaggage(int numOfBags, float costPerBag);
+//Purchase tickets
+void purchaseTicket(float totalCostOfTicket, bool isTicketPaid = false);
+//Screen passengers for security purposes
+void screenPassengersForSecurity(bool didPassengerWalkThorughImageDetector, bool didImageDisplay, bool wasAnythingDetected);
+}
 /*
 Thing 10) Airport
 5 properties:
@@ -326,7 +498,11 @@ Thing 10) Airport
     2) Transport passenger to destination
     3) Transport cargo to destination
  */
-
+//Airplane
+//Hangar
+//Parking Lot
+//Control Tower
+//Terminal Building
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
