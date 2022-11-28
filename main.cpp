@@ -362,15 +362,15 @@ struct Airplane
 
     struct Cockpit
     {
-    int numOfSwitches = 30;
-    int numOfDisplays = 8;
-    int numOfFlightControllers = 2;
-    int numOfRudderPedals = 4;
-    int numOfPilots = 2;
+        int numOfSwitches = 30;
+        int numOfDisplays = 8;
+        int numOfFlightControllers = 2;
+        int numOfRudderPedals = 4;
+        int numOfPilots = 2;
 
-    void turnPlane(int degreesTurned);
-    void landingGearRaised(bool isGearLeverInUpPostion);
-    void talkToAirTrafficControl(bool isPushToTalkSwitchPressed);
+        void turnPlane(int degreesTurned);
+        void landingGearRaised(bool isGearLeverInUpPostion);
+        void talkToAirTrafficControl(bool isPushToTalkSwitchPressed);
     };
 
     //take off
@@ -474,7 +474,8 @@ struct ControlTower
     int numOfRadars = 2;
 
     //provide airplance clearance to move from gate
-    void provideAirplaneGateClearance(bool hasSentPushBackClearence, int timeToPushBackFromGate);
+    void provideAirplaneGateClearance(bool hasSentPushBackClearence, int 
+    timeToPushBackFromGate);
     //monitor airplane during flight 
     void monitorPlaneFlight(float planeSpeed, float planeAttitude, std::string 
     directionOfMovement);
