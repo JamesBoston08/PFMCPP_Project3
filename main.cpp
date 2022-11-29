@@ -108,8 +108,50 @@ struct CarWash
     You'll need to insert the Person struct from the video in the space below.
  */
 
+struct Person
+{
+    int age;
+    int height;
+    float hairLength;
+    float GPA;
+    unsigned int SATScore;
+    int distanceTraveled;
 
+    struct Foot
+    {
+        void stepForward();
+        int stepSize();
+    };
 
+    Foot leftFoot;
+    Foot rightFoot;
+
+    void run(int howFast, bool startWithLeftFoot);
+};
+
+void Person::Foot::stepForward()
+{
+   
+}
+int Person::Foot::stepSize()
+{
+   return 10;
+}
+
+void Person::run(int howFast, bool startWithLeftFoot)
+{
+    if(startWithLeftFoot == true)
+    {
+        leftFoot.stepForward();
+        rightFoot.stepForward();
+    }    
+    else
+    {
+        rightFoot.stepForward();
+        leftFoot.stepForward();
+    }
+    distanceTraveled += (leftFoot.stepSize() + rightFoot.stepSize()) * howFast;
+}
 
 
  /*
@@ -127,33 +169,12 @@ struct CarWash
  if your code produces a -Wpadded warning, add '-Wno-padded' to the .replit file with the other compiler flags (-Weverything -Wno-missing-prototypes etc etc)
  */
 
-
-
-/*
-Thing 1) Cookie Shop
-5 properties:
-    1) number of staff (int)    
-    2) avg. earnings per week (dollars) (float)
-    3) avg. amount of cookie dough used per week (lbs.) (float)
-    4) avg. amount of coffee used per week (lbs.) (float)
-    5) amount of cash on hand (dollars) (float)
-3 things it can do:
-    1) bake cookies
-    2) calculate total charge for customer
-    3) buy a new oven
-*/
-
 struct CookieShop
 {
-    //number of staff (int)
     int numberOfStaff = 10;
-    //avg. earnings per week (dollars) (float)
     float avgEarningsPerWeek = 1500.50f;
-    //avg. amount of cookie dough used per week (lbs.) (float)
     float avgCookieDoughPerWeek = 20.5f;
-    //avg. amount of coffee used per week (lbs.) (float)
     float avgCoffeePerWeek = 17.8f;
-    //amount of cash on hand (dollars) (float)
     float cashOnHand = 2447.89f;
 
     struct Oven
@@ -168,138 +189,137 @@ struct CookieShop
         void displayTimer(std::string setTime);
         void displayTemp(std::string setTemp);
     };
-    //bake cookies
     void bakeCookies(bool isPreheatTempReached);
-    //calculate total charge for customer
     float calculateTotalCustomerCharge(float cookiePrice = 1.95f, float coffeePrice = 
-    3.15f); // returns total cost of items purchased
-    //buy a new oven
+    3.15f); 
     void buyNewOven(Oven newOven);
 };
 
-/*
-Thing 2) LawnMower
-5 properties:
-    1) amount of gasoline (gallon) (float)
-    2) number of wires (int)
-    3) number of blades (int)
-    4) blade height setting (inches) (float)
-    5) rpms of blades (int)
-3 things it can do:
-    1) cut grass
-    2) consume gas
-    3) self propel
- */
 struct LawnMower
 {
-    //amount of gasoline (gallon) (float)
     float amountOfGas = 3.00f;
-    //number of wires (int)
     int numOfWires = 20;
-    //number of blades (int)
     int numOfBlades = 3; 
-    //blade height setting (inches) (float)
     float bladeHeight = 2.5f;
-    //rpms of blades (int)
     int rpmsOfBlades = 3000;
 
-    //cut grass
     void cutGrass(bool engineOn = false, bool engineHandleBarPressedDown = false);
-    //consume gas
     void consumeGas(bool engineOn = false);
-    //self propel
     void selfPropel(bool engineOn = false, bool selfPropelHandleBarPressedDown = false);
 };
-/*
-Thing 3) Laptop
-5 properties:
-    1) height of tower (inches) (int)
-    2) number of fans (int)
-    3) amount of ram (GB)(int)
-    4) number of usb ports (int)
-    5) number of keys (int)
-3 things it can do:
-    1) display letters typed
-    2) multiply numbers
-    3) run software
- */
+
+void LawnMower::cutGrass(bool engineOn, bool engineHandleBarPressedDown)
+{
+    if ((engineOn == true) && (engineHandleBarPressedDown == true))
+    {
+        std::cout << "Ready to cut grass" << std::endl;
+    }
+      
+}
+
+void LawnMower::consumeGas(bool engineOn)
+{
+    if (engineOn == true)
+    {
+        std::cout << "Consuming gas" << std::endl;
+    }
+    
+}
+
+void selfPropel(bool engineOn, bool selfPropelHandleBarPressedDown)
+{
+    if ((engineOn == true) && (selfPropelHandleBarPressedDown == true))
+    {
+        std::cout << "Self Propel On" << std::endl;
+    }
+    else if ((engineOn == true) && (selfPropelHandleBarPressedDown == false))
+    {
+        std::cout << "Self Propel off" << std::endl;
+    }
+}
+
+
+
 struct Laptop
 {
-    //height of tower (inches) (int)
     int towerHeight = 13;
-    //number of fans (int)
     int numOfFans = 3;
-    //amount of ram (GB)(int)
     int amountOfRam = 16;
-    //number of usb ports (int)
     int numOfUSBPorts = 6;
-    //number of keys (int)
     int numOfKeys = 120;
 
-    //display letters typed
     void typeLetter(bool isLetterKeyPressed);
-    //multiply numbers
-    int productOfNumbers(int num1, int num2);// returns product of numbers
-    //run software
+    int productOfNumbers(int num1, int num2);
     void runSoftware(bool hasDoubleClickedIcon);
 };
-/*
-Thing 4) Nuclear Power Plant
-5 properties:
-    1) amount of water used (gallons per mega-watt hr.) (float)
-    2) temp. of water (celcius) (float)
-    3) number of generators (int)
-    4) weight of generator (tons) (float)
-    5) number of engineers (int)
-3 things it can do:
-    1) produce heat
-    2) generate steam
-    3) produce electricity
- */
+
+void Laptop::typeLetter(bool isLetterKeyPressed)
+{
+    if (isLetterKeyPressed == true)
+    {
+        char letterPressed;
+        std::cin >> letterPressed;
+        std::cout << letterPressed << std::endl;
+    }
+}
+
+int Laptop::productOfNumbers(int num1, int num2)
+{
+    int product = num1 * num2;
+    return product;
+}
+
+void Laptop::runSoftware(bool hasDoubleClickedIcon)
+{
+    if (hasDoubleClickedIcon == true)
+    std::cout << "Software Running" << std::endl;
+}
+
 struct NuclearPowerPlant
 {
-    //amount of water used (gallons per mega-watt hr.) (float)
     float amountOfWaterUsed = 375.5f;
-    //temp. of water (celcius) (float)
     float tempOfWater = 284.8f;
-    //number of generators (int)
     int numOfGenerators = 3;
-    //weight of generator (tons) (float)
     float weightOfGenerators = 389.79f;
-    //number of engineers (int)
     int numOfEngineers = 100;
 
-    //produce heat
     void produceHeat(bool isFissionSuccessful);
-    //generate steam
     void generateSteam(bool tubesReachedNeededTemp);
-    //produce electricity
     void produceElectricity(bool isGeneratorReceivingSteam);
 };
-/*
-Thing 5) Airplane
-5 properties:
-    1) number of passenger seats (int)
-    2) total weight of plane (lbs.) (float)
-    3) length of plane wings (meters) (float)
-    4) number of luggage pieces (int)
-    5) amount of fuel (gallons) (int)
-3 things it can do:
-    1) take off and fly
-    2) land 
-    3) send data to control tower
- */
+
+void NuclearPowerPlant::produceHeat(bool isFissionSuccessful)
+{
+    if (isFissionSuccessful)
+    {
+        std::cout << "It's getting hot!" << std::endl;
+    }
+        std::cout << "Try again" << std::endl;
+}
+
+void NuclearPowerPlant::generateSteam(bool tubesReachedNeededTemp)
+{
+    if (tubesReachedNeededTemp)
+    {
+        std::cout << "Generating steam" << std::endl;
+    }
+        std::cout << "No steam generated" << std::endl;
+}
+void NuclearPowerPlant::produceElectricity(bool isGeneratorReceivingSteam)
+{
+    if (isGeneratorReceivingSteam)
+    {
+        std::cout << "Producing elctricity" << std::endl;
+    }
+        std::cout << " No electricity" << std::endl;
+}
+
 struct Airplane
 {
-    //number of passenger seats (int)
     int numOfPassengerSeats = 180;
-    //total weight of plane (lbs.) (float)
     float totalWeightOfPlane = 92354.67f;
-    //length of plane wings (meters) (float)
     float lengthOfPlaneWings = 33.5f;
-    //number of luggage pieces (int)
     int numOfLuggagePieces = 225;
-    //amount of fuel (gallons) (int)
     int amountOfFuel = 20000;
 
     struct Cockpit
@@ -314,182 +334,150 @@ struct Airplane
         void landingGearRaised(bool isGearLeverInUpPostion);
         void talkToAirTrafficControl(bool isPushToTalkSwitchPressed);
     };
-
-    //take off
     void takeOff(bool isRunwayClear, bool isTakeOffSpeedReached);
-    //land
     void land(bool isLandingSpeedReached, bool areWheelsDeployed);
-    //send data to control tower
     void sendDataToContolTower(); 
 };
-/*
-Thing 6) Hangar
-5 properties:
-    1) size of hangar (feet) (float)
-    2) number of planes (int)
-    3) number of maintenance employees (int)
-    4) number of aircraft jacks (int)
-    5) max height of maintenance platforms (feet) (int)
-3 things it can do:
-    1) wash airplanes
-    2) perform routine maintenance on airplanes
-    3) install engine
- */
+
 struct Hangar
 {
-    //size of hangar (feet) (float)
     float hangarSize = 8000.0f;
-    //number of planes (int)
     int numOfPlanes = 3;
-    //number of maintenance employees (int)
     int numOfMaintenanceEmployees = 100;
-    //number of aircraft jacks (int)
     int numOfAircraftJacks = 12;
-    //nax height of maintenance platforms (feet) (int)
     int maxHeightOfMaintenancePlatform = 12;
 
-    //wash airplanes
     void washPlane(int numOfEmployeesWashing, int hrsNeededToWashPlane);
-    //perform routine maintenance on airplanes
     void routinePlaneMaintenance(int hrsNeededtoPerformMaintenance, int 
     numOfEmployeesPerformingMaintenace);
-    //install engine
     void installEngine(int numOfEmployeesInstallEngine, int hrsNeededToInstallEngine);
 };
-/*
-Thing 7) Parking Lot
-5 properties:
-    1) number of cars (int)
-    2) number of parking passes (int)
-    3) size of parking lot (acres) (float)
-    4) number of parking spaces (int)
-    5) number of parking lot exits (int)
-3 things it can do:
-    1) park cars
-    2) purchase parking
-    3) lift barrier arm for entering cars
- */
+
+void Hangar::washPlane(int numOfEmployeesWashing, int hrsNeededToWashPlane)
+{
+    if ((numOfEmployeesWashing >= 5) && (hrsNeededToWashPlane <= 7))
+    {
+        std::cout << "Plane can be washed" << std::endl;
+    }
+        std::cout << "Plane can't be washed" << std::endl;
+}
+
+void Hangar::routinePlaneMaintenance(int hrsNeededtoPerformMaintenance, int 
+    numOfEmployeesPerformingMaintenace)
+{
+    if ((hrsNeededtoPerformMaintenance <= 2) && (numOfEmployeesPerformingMaintenace >= 2))
+    {
+        std::cout << "Please perform maintenace"<< std::endl;
+    }
+        std::cout << "Do not perform maintenace" << std::endl;
+}
+
+void Hangar::installEngine(int numOfEmployeesInstallEngine, int hrsNeededToInstallEngine)
+{
+    if ((numOfEmployeesInstallEngine >= 5) && (hrsNeededToInstallEngine <= 10))
+    {
+        std::cout << "Please install engine" << std::endl;
+    }
+        std::cout << "Do not install engine" << std::endl;
+}
+
 struct ParkingLot
 {
-    //number of cars (int)
     int numOfCars = 3000;
-    //number of parking passes (int)
     int numOfParkingPasses = 2687;
-    //size of parking lot (acres) (float)
     float sizeOfParkingLot = 12.3f;
-    //number of parking spaces (int)
     int numOfParkingSpaces = 3500;
-    //number of parking lot exits (int)
     int numOfParkingLotExits = 5;
 
-    //park cars
     void parkCars(bool isOpenParkingSpace);
-    //purchase parking
-    void purchaseParking(int totalCostOfTicket, bool isParkingPaid);
-    //lift barrier arm for entering cars
+    void purchaseParking (bool isParkingPaid);
     void liftBarrierArm(bool isTicketButtonPressed);
 };
-/*
-Thing 8) Control Tower
-5 properties:
-    1) number of windows (int)
-    2) number of aircaft trafic controllers (int)
-    3) height of control tower (feet) (float)
-    4) number of displays (int)
-    5) number of radars (int)
-3 things it can do:
-    1) provide airplance clearance to move from gate
-    2) monitor airplane during flight
-    3) clear airplane for landing
- */
+
+void ParkingLot::parkCars(bool isOpenParkingSpace)
+{
+    if (isOpenParkingSpace)
+    {
+        std::cout << "Park cars here" << std::endl;
+    }
+        std::cout << "Can't park cars here" << std::endl;
+}
+
+void ParkingLot::purchaseParking (bool isParkingPaid)
+{
+    if (isParkingPaid)
+    {
+        std::cout << "Parking purchased" << std::endl;
+    }
+       
+}
+
+void ParkingLot::liftBarrierArm(bool isTicketButtonPressed)
+{
+    if (isTicketButtonPressed)
+    {
+        std::cout << "Barrier lifted" << std::endl;
+    }
+       
+}
 struct ControlTower
 {
-    //number of windows (int)
     int numOfWindows = 40;
-    //number of aircaft trafic controllers (int)
     int numOfAirTarfficControllers = 8;
-    //height of control tower (feet) (float)
     float controlTowerHeight = 369.5f;
-    //number of displays (int)
     int numOfDisplays = 50;
-    //number of radars (int)
     int numOfRadars = 2;
 
-    //provide airplance clearance to move from gate
     void provideAirplaneGateClearance(bool hasSentPushBackClearence, int 
     timeToPushBackFromGate);
-    //monitor airplane during flight 
-    void monitorPlaneFlight(float planeSpeed, float planeAttitude, std::string 
+    std::string monitorPlaneFlight(float planeSpeed, float planeAttitude, std::string 
     directionOfMovement);
-    //clear airplane for landing
     void clearPlaneForLanding(bool hasSentLandingClearance, bool hasReachedLandingSpeed);
 };
-/*
-Thing 9) Terminal Building
-5 properties:
-    1) number of terminals (int)
-    2) number of airline ticket counters (int)
-    3) number of TSA emplyees (int)
-    4) number of security checkpoints (int)
-    5) number of gates (int)
-3 things it can do:
-    1) check in baggage
-    2) purchase tickets
-    3) screen passengers for security purposes
- */
+
+void ControlTower::provideAirplaneGateClearance(bool hasSentPushBackClearence, int 
+    timeToPushBackFromGate)
+{
+    if ((hasSentPushBackClearence == true) && timeToPushBackFromGate >= 9))
+    {
+        std::cout << "Airplane can go" << std::endl;
+    }
+}
+
+std::string ControlTower::monitorPlaneFlight(float planeSpeed, float planeAltitude, std::string 
+    directionOfMovement)
+{
+    std::string planeSpeedString = std::to_string(planeSpeed);
+    std::string planeAltitudeString = std::to_string(planeAltitude);
+    return "Plane Speed " + planeSpeedString + " Plane Altitude " + planeAltitudeString + 
+    "Direction " + directionOfMovement;
+}
+
 struct TerminalBuilding
 {
-    //number of terminals (int)
     int numOfTerminals = 2;
-    //number of airline ticket counters (int)
     int numOfTicketCounters = 15;
-    //number of TSA emplyees (int)
     int numofTSAEmplyees = 100;
-    //number of security checkpoints (int)
     int numOfSecurityCheckpoints = 10;
-    //number of gates (int)
     int numOfGates = 120;
 
-    //check in baggage
     void checkBaggage(int numOfBags, float costPerBag);
-    //purchase tickets
     void purchaseTicket(float totalCostOfTicket, bool isTicketPaid = false);
-    //screen passengers for security purposes
     void screenPassengersForSecurity(bool didPassengerWalkThorughImageDetector, bool 
     didImageDisplay, bool wasAnythingDetected);
 };
-/*
-Thing 10) Airport
-5 properties:
-    1) Airplane
-    2) Hangar
-    3) Parking Lot
-    4) Control Tower
-    5) Terminal Building
-3 things it can do:
-    1) open a restaurant
-    2) transport passenger to destination
-    3) buy a radar
- */
+
 struct Airport
 {
-    //Airplane
     Airplane airplane;
-    //Hangar
     Hangar hangar;
-    //Parking Lot
     ParkingLot parkingLot;
-    //Control Tower
     ControlTower controlTower;
-    //Terminal Building
     TerminalBuilding terminalBuilding;
 
-    //open a restaturant
     void openRestaurant(int PriceOfRestaurant, int spaceNeededForRestaurant);
-    //transport passenger to destination
     void passengerReachDestination(std::string passengerTicketInformation, std::string 
     planeDestination, bool isPassengerOnPlane);
-    //buy a radar
     void buyRadar(int priceOfRadar);
 };
 /*
