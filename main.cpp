@@ -232,7 +232,6 @@ void CookieShop::buyNewOven(Oven newOvenA)
     std::cout << "I bought a new oven from " << newOvenA.manufacturer;
 }
 
-
 struct LawnMower
 {
     float amountOfGas = 3.00f;
@@ -264,7 +263,7 @@ void LawnMower::consumeGas(bool engineOn)
     
 }
 
-void selfPropel(bool engineOn, bool selfPropelHandleBarPressedDown)
+void LawnMower::selfPropel(bool engineOn, bool selfPropelHandleBarPressedDown)
 {
     if ((engineOn == true) && (selfPropelHandleBarPressedDown == true))
     {
@@ -275,8 +274,6 @@ void selfPropel(bool engineOn, bool selfPropelHandleBarPressedDown)
         std::cout << "Self Propel off" << std::endl;
     }
 }
-
-
 
 struct Laptop
 {
@@ -310,7 +307,10 @@ int Laptop::productOfNumbers(int num1, int num2)
 void Laptop::runSoftware(bool hasDoubleClickedIcon)
 {
     if (hasDoubleClickedIcon == true)
-    std::cout << "Software Running" << std::endl;
+    {
+        std::cout << "Software Running" << std::endl; 
+    }
+    
 }
 
 struct NuclearPowerPlant
@@ -343,6 +343,7 @@ void NuclearPowerPlant::generateSteam(bool tubesReachedNeededTemp)
     }
         std::cout << "No steam generated" << std::endl;
 }
+
 void NuclearPowerPlant::produceElectricity(bool isGeneratorReceivingSteam)
 {
     if (isGeneratorReceivingSteam)
@@ -368,19 +369,59 @@ struct Airplane
         int numOfRudderPedals = 4;
         int numOfPilots = 2;
 
-        void turnPlane(int degreesTurned);
+        int turnPlane(int degreesTurned);
         void landingGearRaised(bool isGearLeverInUpPostion);
         void talkToAirTrafficControl(bool isPushToTalkSwitchPressed);
     };
     void takeOff(bool isRunwayClear, bool isTakeOffSpeedReached);
     void land(bool isLandingSpeedReached, bool areWheelsDeployed);
-    void sendDataToContolTower(); 
+    void sendDataToContolTower(bool isGreenLightOn); 
 };
 
-void Airplane::turnPlane(int degreesTurned)
+int Airplane::Cockpit::turnPlane(int degreesTurned)
 {
-    if()
+    return degreesTurned;
 }
+
+void Airplane::Cockpit::landingGearRaised(bool isGearLeverInUpPostion)
+{
+    if(isGearLeverInUpPostion)
+    {
+        std::cout << "Landing Gear is raised" << std::endl;
+    }
+}
+
+void Airplane::Cockpit::talkToAirTrafficControl(bool isPushToTalkSwitchPressed)
+{
+    if(isPushToTalkSwitchPressed)
+    {
+        std::cout << "Ready to talk" << std::endl;
+    }
+}
+
+void Airplane::takeOff(bool isRunwayClear, bool isTakeOffSpeedReached)
+{
+    if ((isRunwayClear == true) && (isTakeOffSpeedReached == true))
+    {
+        std::cout << " Ready for takeoff" << std::endl;   
+    }
+    
+}
+
+void Airplane::land(bool isLandingSpeedReached, bool areWheelsDeployed)
+{
+    if ((isLandingSpeedReached == true) && (areWheelsDeployed == true))
+        std::cout << "Ready for landing" << std::endl;
+}
+
+void Airplane::sendDataToContolTower(bool isGreenLightOn)
+{
+    if (isGreenLightOn == false)
+    {
+        std::cout << "Data is not being sent to control" << std::endl;
+    }
+}
+
 struct Hangar
 {
     float hangarSize = 8000.0f;
@@ -490,8 +531,7 @@ std::string ControlTower::monitorPlaneFlight(float planeSpeed, float planeAltitu
 {
     std::string planeSpeedString = std::to_string(planeSpeed);
     std::string planeAltitudeString = std::to_string(planeAltitude);
-    return "Plane Speed " + planeSpeedString + " Plane Altitude " + 
-    planeAltitudeString + 
+    return "Plane Speed " + planeSpeedString + " Plane Altitude " + planeAltitudeString +     
     "Direction " + directionOfMovement;
 }
 
@@ -545,8 +585,7 @@ void TerminalBuilding::screenPassengersForSecurity(bool didPassengerWalkThorughI
     else
     {
         std::cout << "Error" << std::endl;
-    }
-        
+    }      
 }
     
 struct Airport
@@ -558,10 +597,33 @@ struct Airport
     TerminalBuilding terminalBuilding;
 
     void openRestaurant(int PriceOfRestaurant, int spaceNeededForRestaurant);
-    void passengerReachDestination(std::string passengerTicketInformation, std::string 
-    planeDestination, bool isPassengerOnPlane);
-    void buyRadar(int priceOfRadar);
+    void passengerReachDestination(std::string passengerTicketDestination, std::string 
+    planeLandedAtDestination);
+    float buyRadars(float priceOfRadar, float numOfRadars);
 };
+
+void Airport::openRestaurant(int PriceOfRestaurant, int spaceNeededForRestaurant)
+{
+    if ((PriceOfRestaurant <= 300000) && (spaceNeededForRestaurant <= 3000))
+    {
+        std::cout << "Buy restaurant" << std::endl;
+    }
+}
+
+void Airport::passengerReachDestination(std::string passengerTicketDestination, std::string 
+    planeLandedAtDestination)
+{
+    if (passengerTicketDestination == planeLandedAtDestination) 
+    {
+        std::cout << "Passenger Reached Destination" << std::endl;
+    }
+        
+}
+
+float Airport::buyRadars(float priceOfRadar, float numOfRadars)
+{
+    return priceOfRadar * numOfRadars;
+}
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
