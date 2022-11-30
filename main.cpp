@@ -328,7 +328,6 @@ void NuclearPowerPlant::produceHeat(bool isFissionSuccessful)
     {
         std::cout << "It's getting hot!" << std::endl;
     }
-        std::cout << "Try again" << std::endl;
 }
 
 void NuclearPowerPlant::generateSteam(bool tubesReachedNeededTemp)
@@ -337,7 +336,6 @@ void NuclearPowerPlant::generateSteam(bool tubesReachedNeededTemp)
     {
         std::cout << "Generating steam" << std::endl;
     }
-        std::cout << "No steam generated" << std::endl;
 }
 
 void NuclearPowerPlant::produceElectricity(bool isGeneratorReceivingSteam)
@@ -346,7 +344,6 @@ void NuclearPowerPlant::produceElectricity(bool isGeneratorReceivingSteam)
     {
         std::cout << "Producing elctricity" << std::endl;
     }
-        std::cout << " No electricity" << std::endl;
 }
 
 struct Airplane
@@ -405,8 +402,10 @@ void Airplane::takeOff(bool isRunwayClear, bool isTakeOffSpeedReached)
 
 void Airplane::land(bool isLandingSpeedReached, bool areWheelsDeployed)
 {
-    if ((isLandingSpeedReached == true) && (areWheelsDeployed == true))
+    if (isLandingSpeedReached && areWheelsDeployed)
+    {
         std::cout << "Ready for landing" << std::endl;
+    }       
 }
 
 void Airplane::sendDataToContolTower(bool isGreenLightOn)
@@ -437,7 +436,10 @@ void Hangar::washPlane(int numOfEmployeesWashing, int hrsNeededToWashPlane)
     {
         std::cout << "Plane can be washed" << std::endl;
     }
+    else
+    {
         std::cout << "Plane can't be washed" << std::endl;
+    }
 }
 
 void Hangar::routinePlaneMaintenance(int hrsNeededtoPerformMaintenance, int 
@@ -447,7 +449,10 @@ void Hangar::routinePlaneMaintenance(int hrsNeededtoPerformMaintenance, int
     {
         std::cout << "Please perform maintenace"<< std::endl;
     }
+    else
+    {
         std::cout << "Do not perform maintenace" << std::endl;
+    }      
 }
 
 void Hangar::installEngine(int numOfEmployeesInstallEngine, int hrsNeededToInstallEngine)
@@ -456,7 +461,10 @@ void Hangar::installEngine(int numOfEmployeesInstallEngine, int hrsNeededToInsta
     {
         std::cout << "Please install engine" << std::endl;
     }
+    else
+    {
         std::cout << "Do not install engine" << std::endl;
+    }      
 }
 
 struct ParkingLot
@@ -478,7 +486,10 @@ void ParkingLot::parkCars(bool isOpenParkingSpace)
     {
         std::cout << "Park cars here" << std::endl;
     }
+    else
+    {
         std::cout << "Can't park cars here" << std::endl;
+    }    
 }
 
 void ParkingLot::purchaseParking (bool isParkingPaid)
@@ -570,7 +581,8 @@ void TerminalBuilding::screenPassengersForSecurity(bool didPassengerWalkThorughI
     {
         std::cout << "Please continue walking" << std::endl;
     }
-    else if ((didPassengerWalkThorughImageDetector == true) && (wasAnythingDetected == true))
+    else if ((didPassengerWalkThorughImageDetector == true) && (wasAnythingDetected == 
+    true))
     {
         std::cout << "Wait here" << std::endl;
     }
