@@ -154,7 +154,6 @@ void Person::run(int howFast, bool startWithLeftFoot)
     distanceTraveled += (leftFoot.stepSize() + rightFoot.stepSize()) * howFast;
 }
 
-
  /*
  2) provide implementations for the member functions you declared in your 10 user-defined types from the previous video outside of your UDT definitions.
     If you have 'unused parameter' warnings, you aren't using one of your function parameters in your implementation.
@@ -250,8 +249,7 @@ void LawnMower::cutGrass(bool engineOn, bool engineHandleBarPressedDown)
     if ((engineOn == true) && (engineHandleBarPressedDown == true))
     {
         std::cout << "Ready to cut grass" << std::endl;
-    }
-      
+    }    
 }
 
 void LawnMower::consumeGas(bool engineOn)
@@ -260,7 +258,6 @@ void LawnMower::consumeGas(bool engineOn)
     {
         std::cout << "Consuming gas" << std::endl;
     }
-    
 }
 
 void LawnMower::selfPropel(bool engineOn, bool selfPropelHandleBarPressedDown)
@@ -309,8 +306,7 @@ void Laptop::runSoftware(bool hasDoubleClickedIcon)
     if (hasDoubleClickedIcon == true)
     {
         std::cout << "Software Running" << std::endl; 
-    }
-    
+    }   
 }
 
 struct NuclearPowerPlant
@@ -404,8 +400,7 @@ void Airplane::takeOff(bool isRunwayClear, bool isTakeOffSpeedReached)
     if ((isRunwayClear == true) && (isTakeOffSpeedReached == true))
     {
         std::cout << " Ready for takeoff" << std::endl;   
-    }
-    
+    }  
 }
 
 void Airplane::land(bool isLandingSpeedReached, bool areWheelsDeployed)
@@ -491,8 +486,7 @@ void ParkingLot::purchaseParking (bool isParkingPaid)
     if (isParkingPaid)
     {
         std::cout << "Parking purchased" << std::endl;
-    }
-       
+    }     
 }
 
 void ParkingLot::liftBarrierArm(bool isTicketButtonPressed)
@@ -500,8 +494,7 @@ void ParkingLot::liftBarrierArm(bool isTicketButtonPressed)
     if (isTicketButtonPressed)
     {
         std::cout << "Barrier lifted" << std::endl;
-    }
-       
+    }       
 }
 struct ControlTower
 {
@@ -560,8 +553,7 @@ struct TerminalBuilding
 float TerminalBuilding::chargeBaggageFee(float numOfBags, float costPerBag)
 {
      float baggageFee = numOfBags * costPerBag;
-     return baggageFee;
-     
+     return baggageFee;  
 }
 
 void TerminalBuilding::purchaseTicket(bool isTicketPaid)
@@ -616,8 +608,7 @@ void Airport::passengerReachDestination(std::string passengerTicketDestination, 
     if (passengerTicketDestination == planeLandedAtDestination) 
     {
         std::cout << "Passenger Reached Destination" << std::endl;
-    }
-        
+    }      
 }
 
 float Airport::buyRadars(float priceOfRadar, float numOfRadars)
