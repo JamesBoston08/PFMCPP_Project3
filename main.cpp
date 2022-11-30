@@ -97,6 +97,7 @@ struct CarWash
     
     Car carBeingServiced;  
 };
+
 }
   /*
     The above snippet is just an example showing you how to clean up your code.  
@@ -192,8 +193,45 @@ struct CookieShop
     void bakeCookies(bool isPreheatTempReached);
     float calculateTotalCustomerCharge(float cookiePrice = 1.95f, float coffeePrice = 
     3.15f); 
-    void buyNewOven(Oven newOven);
+    void buyNewOven(Oven manufacturer);
 };
+
+void CookieShop::Oven::produceHeat(bool isOvenOn)
+{
+    if (isOvenOn == true)
+    {
+        std::cout << "Oven heating" << std::endl;
+    }
+}
+
+void CookieShop::Oven::displayTimer(std::string setTime)
+{
+    std::cout << "Timer is " << setTime << std::endl;
+}
+
+void CookieShop::Oven::displayTemp(std::string setTemp)
+{
+    std::cout << "Tempertue is " << setTemp << std::endl;
+}
+
+void CookieShop::bakeCookies(bool isPreheatTempReached)
+{
+    if (isPreheatTempReached)
+    {
+        std::cout << "Ready to bake" << std::endl;
+    }
+}
+
+float CookieShop::calculateTotalCustomerCharge(float cookiePrice, float coffeePrice)
+{
+    return cookiePrice + coffeePrice;
+}
+
+void CookieShop::buyNewOven(Oven newOvenA)
+{
+    std::cout << "I bought a new oven from " << newOvenA.manufacturer;
+}
+
 
 struct LawnMower
 {
@@ -339,6 +377,10 @@ struct Airplane
     void sendDataToContolTower(); 
 };
 
+void Airplane::turnPlane(int degreesTurned)
+{
+    if()
+}
 struct Hangar
 {
     float hangarSize = 8000.0f;
@@ -430,27 +472,35 @@ struct ControlTower
 
     void provideAirplaneGateClearance(bool hasSentPushBackClearence, int 
     timeToPushBackFromGate);
-    std::string monitorPlaneFlight(float planeSpeed, float planeAttitude, std::string 
-    directionOfMovement);
+    std::string monitorPlaneFlight(float planeSpeed, float planeAttitude, 
+    std::string directionOfMovement);
     void clearPlaneForLanding(bool hasSentLandingClearance, bool hasReachedLandingSpeed);
 };
 
 void ControlTower::provideAirplaneGateClearance(bool hasSentPushBackClearence, int 
     timeToPushBackFromGate)
 {
-    if ((hasSentPushBackClearence == true) && timeToPushBackFromGate >= 9))
+    if ((hasSentPushBackClearence == true) && (timeToPushBackFromGate >= 1600))
     {
-        std::cout << "Airplane can go" << std::endl;
+        std::cout << "Airplane ready to clear gate" << std::endl;
     }
 }
 
-std::string ControlTower::monitorPlaneFlight(float planeSpeed, float planeAltitude, std::string 
-    directionOfMovement)
+std::string ControlTower::monitorPlaneFlight(float planeSpeed, float planeAltitude, std::string directionOfMovement)
 {
     std::string planeSpeedString = std::to_string(planeSpeed);
     std::string planeAltitudeString = std::to_string(planeAltitude);
-    return "Plane Speed " + planeSpeedString + " Plane Altitude " + planeAltitudeString + 
+    return "Plane Speed " + planeSpeedString + " Plane Altitude " + 
+    planeAltitudeString + 
     "Direction " + directionOfMovement;
+}
+
+void ControlTower::clearPlaneForLanding(bool hasSentLandingClearance, bool hasReachedLandingSpeed)
+{
+    if ((hasSentLandingClearance == true) && (hasReachedLandingSpeed == true))
+    {
+        std::cout << "Airplane is ready for landing" << std::endl;
+    }
 }
 
 struct TerminalBuilding
@@ -461,12 +511,44 @@ struct TerminalBuilding
     int numOfSecurityCheckpoints = 10;
     int numOfGates = 120;
 
-    void checkBaggage(int numOfBags, float costPerBag);
-    void purchaseTicket(float totalCostOfTicket, bool isTicketPaid = false);
+    float chargeBaggageFee(float numOfBags, float costPerBag);
+    void purchaseTicket(bool isTicketPaid = false);
     void screenPassengersForSecurity(bool didPassengerWalkThorughImageDetector, bool 
-    didImageDisplay, bool wasAnythingDetected);
+     wasAnythingDetected);
 };
 
+float TerminalBuilding::chargeBaggageFee(float numOfBags, float costPerBag)
+{
+     float baggageFee = numOfBags * costPerBag;
+     return baggageFee;
+     
+}
+
+void TerminalBuilding::purchaseTicket(bool isTicketPaid)
+{
+    if (isTicketPaid)
+    {
+        std::cout << "Ticket purchased" << std::endl;
+    }
+}
+
+void TerminalBuilding::screenPassengersForSecurity(bool didPassengerWalkThorughImageDetector, bool wasAnythingDetected)
+{
+    if ((didPassengerWalkThorughImageDetector == true) && (wasAnythingDetected == false))
+    {
+        std::cout << "Please continue walking" << std::endl;
+    }
+    else if ((didPassengerWalkThorughImageDetector == true) && (wasAnythingDetected == true))
+    {
+        std::cout << "Wait here" << std::endl;
+    }
+    else
+    {
+        std::cout << "Error" << std::endl;
+    }
+        
+}
+    
 struct Airport
 {
     Airplane airplane;
