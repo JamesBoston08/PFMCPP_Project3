@@ -548,5 +548,7 @@ float Airport::buyRadars(float priceOfRadar, float numOfRadars)
 #include <iostream>
 int main()
 {
+    Example::main();
+    
     std::cout << "good to go!" << std::endl;
 }
