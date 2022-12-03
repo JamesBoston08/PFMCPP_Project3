@@ -75,6 +75,7 @@ int main()
 
 struct CookieShop
 {
+    CookieShop ();
     int numberOfStaff = 10;
     float avgEarningsPerWeek = 1500.50f;
     float avgCookieDoughPerWeek = 20.5f;
@@ -83,6 +84,7 @@ struct CookieShop
 
     struct Oven
     {
+        Oven ();
         int widthOfOven = 30;
         int maxTemp = 450;
         std::string manufacturer = "Maytag";
@@ -98,6 +100,16 @@ struct CookieShop
     3.15f); 
     void buyNewOven(Oven manufacturer);
 };
+
+CookieShop::Oven ()
+{
+    std::cout << "Oven being constructed!" << std::endl;
+}
+
+CookieShop::CookieShop ()
+{
+    std::cout << "CookieShop being constructed!" << std::endl;
+}
 
 void CookieShop::Oven::produceHeat(bool isOvenOn)
 {
@@ -137,6 +149,7 @@ void CookieShop::buyNewOven(Oven newOvenA)
 
 struct LawnMower
 {
+    LawnMower ();
     float amountOfGas = 3.00f;
     int numOfWires = 20;
     int numOfBlades = 3; 
@@ -147,6 +160,11 @@ struct LawnMower
     void consumeGas(bool engineOn = false);
     void selfPropel(bool engineOn = false, bool selfPropelHandleBarPressedDown = false);
 };
+
+LawnMower::LawnMower ()
+{
+    std::cout << "LawnMower being constructed!" << std::endl;
+}
 
 void LawnMower::cutGrass(bool engineOn, bool engineHandleBarPressedDown)
 {
@@ -178,6 +196,7 @@ void LawnMower::selfPropel(bool engineOn, bool selfPropelHandleBarPressedDown)
 
 struct Laptop
 {
+    Laptop ();
     int towerHeight = 13;
     int numOfFans = 3;
     int amountOfRam = 16;
@@ -188,6 +207,11 @@ struct Laptop
     int productOfNumbers(int num1, int num2);
     void runSoftware(bool hasDoubleClickedIcon);
 };
+
+Laptop::Laptop ()
+{
+    std::cout << "Laptop being constructed!" << std::endl;
+}
 
 void Laptop::typeLetter(bool isLetterKeyPressed)
 {
@@ -215,6 +239,7 @@ void Laptop::runSoftware(bool hasDoubleClickedIcon)
 
 struct NuclearPowerPlant
 {
+    NuclearPowerPlant ();
     float amountOfWaterUsed = 375.5f;
     float tempOfWater = 284.8f;
     int numOfGenerators = 3;
@@ -225,6 +250,11 @@ struct NuclearPowerPlant
     void generateSteam(bool tubesReachedNeededTemp);
     void produceElectricity(bool isGeneratorReceivingSteam);
 };
+
+NuclearPowerPlant::NuclearPowerPlant ()
+{
+    std::cout << "NuclearPowerPlant being constructed!" << std::endl;
+}
 
 void NuclearPowerPlant::produceHeat(bool isFissionSuccessful)
 {
@@ -252,6 +282,7 @@ void NuclearPowerPlant::produceElectricity(bool isGeneratorReceivingSteam)
 
 struct Airplane
 {
+    Airplane ();
     int numOfPassengerSeats = 180;
     float totalWeightOfPlane = 92354.67f;
     float lengthOfPlaneWings = 33.5f;
@@ -260,6 +291,7 @@ struct Airplane
 
     struct Cockpit
     {
+        Cockpit ();
         int numOfSwitches = 30;
         int numOfDisplays = 8;
         int numOfFlightControllers = 2;
@@ -274,6 +306,16 @@ struct Airplane
     void land(bool isLandingSpeedReached, bool areWheelsDeployed);
     void sendDataToContolTower(bool isGreenLightOn); 
 };
+
+Airplane::Airplane ()
+{
+    std::cout << "Airplane being constructed!" << std::endl;
+}
+
+Airplane::Cockpit ()
+{
+    std::cout << "Cockpit being constructed!" << std::endl;
+}
 
 int Airplane::Cockpit::turnPlane(int degreesTurned)
 {
@@ -322,6 +364,7 @@ void Airplane::sendDataToContolTower(bool isGreenLightOn)
 
 struct Hangar
 {
+    Hangar ();
     float hangarSize = 8000.0f;
     int numOfPlanes = 3;
     int numOfMaintenanceEmployees = 100;
@@ -333,6 +376,11 @@ struct Hangar
     numOfEmployeesPerformingMaintenace);
     void installEngine(int numOfEmployeesInstallEngine, int hrsNeededToInstallEngine);
 };
+
+Hangar::Hangar ()
+{
+    std::cout << "Hangar being constructed!" << std::endl;
+}
 
 void Hangar::washPlane(int numOfEmployeesWashing, int hrsNeededToWashPlane)
 {
@@ -373,6 +421,7 @@ void Hangar::installEngine(int numOfEmployeesInstallEngine, int hrsNeededToInsta
 
 struct ParkingLot
 {
+    ParkingLot ();
     int numOfCars = 3000;
     int numOfParkingPasses = 2687;
     float sizeOfParkingLot = 12.3f;
@@ -383,6 +432,11 @@ struct ParkingLot
     void purchaseParking (bool isParkingPaid);
     void liftBarrierArm(bool isTicketButtonPressed);
 };
+
+ParkingLot::ParkingLot ()
+{
+    std::cout << "ParkingLot being constructed!" << std::endl;
+}
 
 void ParkingLot::parkCars(bool isOpenParkingSpace)
 {
@@ -413,6 +467,7 @@ void ParkingLot::liftBarrierArm(bool isTicketButtonPressed)
 }
 struct ControlTower
 {
+    ControlTower ();
     int numOfWindows = 40;
     int numOfAirTarfficControllers = 8;
     float controlTowerHeight = 369.5f;
@@ -425,6 +480,11 @@ struct ControlTower
     std::string directionOfMovement);
     void clearPlaneForLanding(bool hasSentLandingClearance, bool hasReachedLandingSpeed);
 };
+
+ControlTower::ControlTower ()
+{
+    std::cout << "ControlTower being constructed!" << std::endl;
+}
 
 void ControlTower::provideAirplaneGateClearance(bool hasSentPushBackClearence, int 
     timeToPushBackFromGate)
@@ -453,6 +513,7 @@ void ControlTower::clearPlaneForLanding(bool hasSentLandingClearance, bool hasRe
 
 struct TerminalBuilding
 {
+    TerminalBuilding ();
     int numOfTerminals = 2;
     int numOfTicketCounters = 15;
     int numofTSAEmplyees = 100;
@@ -464,6 +525,11 @@ struct TerminalBuilding
     void screenPassengersForSecurity(bool didPassengerWalkThorughImageDetector, bool 
      wasAnythingDetected);
 };
+
+TerminalBuilding::TerminalBuilding ()
+{
+    std::endl << "TerminalBuilding being constructed!" << std::endl;
+}
 
 float TerminalBuilding::chargeBaggageFee(float numOfBags, float costPerBag)
 {
@@ -498,6 +564,7 @@ void TerminalBuilding::screenPassengersForSecurity(bool didPassengerWalkThorughI
     
 struct Airport
 {
+    Airport ();
     Airplane airplane;
     Hangar hangar;
     ParkingLot parkingLot;
@@ -516,6 +583,11 @@ void Airport::openRestaurant(int PriceOfRestaurant, int spaceNeededForRestaurant
     {
         std::cout << "Buy restaurant" << std::endl;
     }
+}
+
+Airport::Airport ()
+{
+    std::cout << "Airport being constructed!" << std::endl;
 }
 
 void Airport::passengerReachDestination(std::string passengerTicketDestination, std::string 
