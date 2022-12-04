@@ -73,18 +73,18 @@ int main()
 
 
 
-struct CookieShop
+struct CookieShop   //UDT #1
 {
-    CookieShop ();
+    CookieShop();
     int numberOfStaff = 10;
     float avgEarningsPerWeek = 1500.50f;
     float avgCookieDoughPerWeek = 20.5f;
     float avgCoffeePerWeek = 17.8f;
     float cashOnHand = 2447.89f;
 
-    struct Oven
+    struct Oven  //Nested UDT of UDT #1
     {
-        Oven ();
+        Oven();
         int widthOfOven = 30;
         int maxTemp = 450;
         std::string manufacturer = "Maytag";
@@ -101,14 +101,9 @@ struct CookieShop
     void buyNewOven(Oven manufacturer);
 };
 
-CookieShop::Oven ()
+CookieShop::Oven::Oven() // Constructor for Nested UDT of UDT #1
 {
     std::cout << "Oven being constructed!" << std::endl;
-}
-
-CookieShop::CookieShop ()
-{
-    std::cout << "CookieShop being constructed!" << std::endl;
 }
 
 void CookieShop::Oven::produceHeat(bool isOvenOn)
@@ -126,25 +121,32 @@ void CookieShop::Oven::displayTimer(std::string setTime)
 
 void CookieShop::Oven::displayTemp(std::string setTemp)
 {
-    std::cout << "Tempertue is " << setTemp << std::endl;
+    std::cout << "Temperature is " << setTemp << std::endl;
+}
+
+CookieShop::CookieShop ()  // Consturctor for UDT #1
+{
+    std::cout << "\nCookieShop being constructed!" << std::endl;
 }
 
 void CookieShop::bakeCookies(bool isPreheatTempReached)
 {
     if (isPreheatTempReached)
     {
-        std::cout << "Ready to bake" << std::endl;
+        std::cout << "\nReady to bake" << std::endl;
     }
 }
 
 float CookieShop::calculateTotalCustomerCharge(float cookiePrice, float coffeePrice)
 {
-    return cookiePrice + coffeePrice;
+    float total = cookiePrice + coffeePrice;
+    std::cout << "Your total:$ " << total << std::endl;
+    return total;
 }
 
 void CookieShop::buyNewOven(Oven newOvenA)
 {
-    std::cout << "I bought a new oven from " << newOvenA.manufacturer;
+    std::cout << "I bought a new oven from " << newOvenA.manufacturer << std::endl;
 }
 
 struct LawnMower
@@ -217,15 +219,15 @@ void Laptop::typeLetter(bool isLetterKeyPressed)
 {
     if (isLetterKeyPressed == true)
     {
-        char letterPressed;
-        std::cin >> letterPressed;
-        std::cout << letterPressed << std::endl;
+        char letterPressed = 'B';
+        std::cout << "You pressed the letter " << letterPressed << std::endl;
     }
 }
 
 int Laptop::productOfNumbers(int num1, int num2)
 {
     int product = num1 * num2;
+    std::cout << "Product is " << product << std::endl;
     return product;
 }
 
@@ -282,7 +284,7 @@ void NuclearPowerPlant::produceElectricity(bool isGeneratorReceivingSteam)
 
 struct Airplane
 {
-    Airplane ();
+    Airplane();
     int numOfPassengerSeats = 180;
     float totalWeightOfPlane = 92354.67f;
     float lengthOfPlaneWings = 33.5f;
@@ -291,7 +293,7 @@ struct Airplane
 
     struct Cockpit
     {
-        Cockpit ();
+        Cockpit();
         int numOfSwitches = 30;
         int numOfDisplays = 8;
         int numOfFlightControllers = 2;
@@ -304,7 +306,7 @@ struct Airplane
     };
     void takeOff(bool isRunwayClear, bool isTakeOffSpeedReached);
     void land(bool isLandingSpeedReached, bool areWheelsDeployed);
-    void sendDataToContolTower(bool isGreenLightOn); 
+    void sendDataToControlTower(bool isGreenLightOn); 
 };
 
 Airplane::Airplane ()
@@ -312,13 +314,14 @@ Airplane::Airplane ()
     std::cout << "Airplane being constructed!" << std::endl;
 }
 
-Airplane::Cockpit ()
+Airplane::Cockpit::Cockpit ()
 {
     std::cout << "Cockpit being constructed!" << std::endl;
 }
 
 int Airplane::Cockpit::turnPlane(int degreesTurned)
 {
+    std::cout<< "Plane turned " << degreesTurned << " degrees" << std::endl;
     return degreesTurned;
 }
 
@@ -342,7 +345,7 @@ void Airplane::takeOff(bool isRunwayClear, bool isTakeOffSpeedReached)
 {
     if ((isRunwayClear == true) && (isTakeOffSpeedReached == true))
     {
-        std::cout << " Ready for takeoff" << std::endl;   
+        std::cout << "Ready for takeoff" << std::endl;   
     }  
 }
 
@@ -354,7 +357,7 @@ void Airplane::land(bool isLandingSpeedReached, bool areWheelsDeployed)
     }       
 }
 
-void Airplane::sendDataToContolTower(bool isGreenLightOn)
+void Airplane::sendDataToControlTower(bool isGreenLightOn)
 {
     if (isGreenLightOn == false)
     {
@@ -364,7 +367,7 @@ void Airplane::sendDataToContolTower(bool isGreenLightOn)
 
 struct Hangar
 {
-    Hangar ();
+    Hangar();
     float hangarSize = 8000.0f;
     int numOfPlanes = 3;
     int numOfMaintenanceEmployees = 100;
@@ -377,7 +380,7 @@ struct Hangar
     void installEngine(int numOfEmployeesInstallEngine, int hrsNeededToInstallEngine);
 };
 
-Hangar::Hangar ()
+Hangar::Hangar()
 {
     std::cout << "Hangar being constructed!" << std::endl;
 }
@@ -476,7 +479,7 @@ struct ControlTower
 
     void provideAirplaneGateClearance(bool hasSentPushBackClearence, int 
     timeToPushBackFromGate);
-    std::string monitorPlaneFlight(float planeSpeed, float planeAttitude, 
+    std::string monitorPlaneFlight(float planeSpeed, 
     std::string directionOfMovement);
     void clearPlaneForLanding(bool hasSentLandingClearance, bool hasReachedLandingSpeed);
 };
@@ -495,11 +498,11 @@ void ControlTower::provideAirplaneGateClearance(bool hasSentPushBackClearence, i
     }
 }
 
-std::string ControlTower::monitorPlaneFlight(float planeSpeed, float planeAltitude, std::string directionOfMovement)
+std::string ControlTower::monitorPlaneFlight(float planeSpeed, std::string directionOfMovement)
 {
     std::string planeSpeedString = std::to_string(planeSpeed);
-    std::string planeAltitudeString = std::to_string(planeAltitude);
-    return "Plane Speed " + planeSpeedString + " Plane Altitude " + planeAltitudeString +     
+    std::cout << "Plane Speed is: " << planeSpeed << " mph and " << "direction is: " << directionOfMovement << std::endl;
+    return "Plane Speed " + planeSpeedString +     
     "Direction " + directionOfMovement;
 }
 
@@ -528,7 +531,7 @@ struct TerminalBuilding
 
 TerminalBuilding::TerminalBuilding ()
 {
-    std::endl << "TerminalBuilding being constructed!" << std::endl;
+    std::cout << "TerminalBuilding being constructed!" << std::endl;
 }
 
 float TerminalBuilding::chargeBaggageFee(float numOfBags, float costPerBag)
@@ -621,6 +624,63 @@ float Airport::buyRadars(float priceOfRadar, float numOfRadars)
 int main()
 {
     Example::main();
+    
+    CookieShop cookieShop;
+    CookieShop::Oven newOven1;
+    LawnMower lawnMower;
+    Laptop laptop;
+    NuclearPowerPlant nucPlant;
+    Airplane airplane;
+    Airplane::Cockpit cockpit;
+    Hangar hangar;
+    ParkingLot parkingLot;
+    ControlTower controlTower;
+    TerminalBuilding termBuilding;
+    Airport airport;
+    
+    
+    cookieShop.bakeCookies(true);
+    cookieShop.calculateTotalCustomerCharge(2.00f, 4.00f);
+    cookieShop.buyNewOven(newOven1);
+
+    newOven1.produceHeat(true);
+    newOven1.displayTimer("10:00");
+    newOven1.displayTemp("400F");
+
+    lawnMower.cutGrass(true, true);
+    lawnMower.consumeGas(true);
+    lawnMower.selfPropel(true, false);
+
+    laptop.typeLetter(true );
+    laptop.productOfNumbers(5, 6);
+    laptop.runSoftware(true);
+
+    nucPlant.produceHeat(true);
+    nucPlant.generateSteam(true);
+    nucPlant.produceElectricity(true);
+
+    airplane.takeOff(true, true);
+    airplane.land(true, true);
+    airplane.sendDataToControlTower(false);
+
+    cockpit.turnPlane(25);
+    cockpit.landingGearRaised(true);
+    cockpit.talkToAirTrafficControl(true);
+
+    hangar.washPlane(3, 7);
+    hangar.routinePlaneMaintenance(3, 2);
+    hangar.installEngine(7, 8);
+
+    parkingLot.parkCars(false);
+    parkingLot.purchaseParking(true);
+    parkingLot.liftBarrierArm(true);
+
+    controlTower.provideAirplaneGateClearance(true, 1700);
+    controlTower.monitorPlaneFlight(900, "North");
+    controlTower.clearPlaneForLanding(true, true);
+
+    termBuilding.chargeBaggageFee(2.0f, 50);
+    
     
     std::cout << "good to go!" << std::endl;
 }
