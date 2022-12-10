@@ -74,36 +74,38 @@ int main()
 
 struct CookieShop  
 {
-    int numberOfStaff; // member variable that is not initialized in-class                                             
-    CookieShop() : numberOfStaff(10) { } // initializing member varibale that was not initailized in-class
+    int numberOfStaff;                                       
+    CookieShop() : numberOfStaff(10) { }
     float avgEarningsPerWeek = 1500.50f;
     float avgCookieDoughPerWeek = 20.5f;
-    float avgCoffeePerWeek { 17.8f }; // member variable initialized in-class
+    float avgCoffeePerWeek { 17.8f }; 
     float cashOnHand = 2447.89f;
 
     struct Oven  
     {
         int widthOfOven = 30;
-        int maxTemp; //member variable that is not initialized in-class
-        Oven() : maxTemp(450) { } // initializing member varibale that was not initailized in-class
+        int maxTemp=450; 
         std::string manufacturer = "Maytag";
         int widthOfOvenWindow = 26;
-        int numOfKnobs { 7 }; // member variable initialized in-class
+        int numOfKnobs { 7 }; 
 
         void produceHeat(bool isOvenOn);
         void displayTimer(std::string setTime);
         void displayTemp(std::string setTemp);
+        void lowerTemp(int currentTemp); // new member function 1
     };
 
     void bakeCookies(bool isPreheatTempReached);
     float calculateTotalCustomerCharge(float cookiePrice = 1.95f, float coffeePrice = 3.15f); 
     void buyNewOven(Oven manufacturer);
+    int hireNewStaff(int newStaffMember); // new member function 2
 };
 
 void CookieShop::Oven::produceHeat(bool isOvenOn)
 {
     if (isOvenOn == true)
     {
+        std::cout << std::endl;
         std::cout << "Oven heating." << std::endl;
     }
 }
@@ -116,7 +118,18 @@ void CookieShop::Oven::displayTimer(std::string setTime)
 void CookieShop::Oven::displayTemp(std::string setTemp)
 {
     std::cout << "Temperature is " << setTemp << "." << std::endl;
-    std::cout << "Changing temperature to " << maxTemp <<  "." << std::endl; // //2) printing out something interesting
+    std::cout << "Changing temperature to " << maxTemp <<  "." << std::endl;
+    std::cout << std::endl;
+}
+
+void CookieShop::Oven::lowerTemp(int currentTemp) //New member function 1
+{
+    Oven oven;
+    while(oven.maxTemp > currentTemp)
+    {
+        oven.maxTemp -= 10;
+        std::cout << "Lowering temp to: " << oven.maxTemp << std::endl;
+    }
 }
 
 void CookieShop::bakeCookies(bool isPreheatTempReached)
@@ -138,21 +151,33 @@ float CookieShop::calculateTotalCustomerCharge(float cookiePrice, float coffeePr
 void CookieShop::buyNewOven(Oven newOvenA)
 {
     std::cout << "I bought a new oven from " << newOvenA.manufacturer << "." << std::endl;
-    std::cout << "We will now go from " << numberOfStaff << " to " << numberOfStaff + 3 << " employees." << std::endl; //2) printing out something interesting
+    std::cout << "We will now go from " << numberOfStaff << " to " << numberOfStaff + 3 << " employees." << std::endl; 
+    std::cout << std::endl;
+}
+
+int CookieShop::hireNewStaff(int totalStaffNeeded) //new member function 2
+{
+    for(int i = numberOfStaff; i <= totalStaffNeeded; ++i)
+    {
+        numberOfStaff += 1;
+        std::cout << "Increasing staff: " << numberOfStaff << std::endl;     
+    }   
+    return numberOfStaff;
 }
 
 struct LawnMower 
 { 
     float amountOfGas = 3.00f;
-    int numOfWires; //member variable that is not initialized in-class
-    LawnMower() : numOfWires (20) { } // initializing member varibale that was not initailized in-class
+    int numOfWires;
+    LawnMower() : numOfWires (20) { } 
     int numOfBlades = 3; 
-    float bladeHeight { 2.5f }; // member variable initialized in-class
+    float bladeHeight { 2.5f }; 
     int rpmsOfBlades = 3000;
 
     void cutGrass(bool engineOn = false, bool engineHandleBarPressedDown = false);
     void consumeGas(bool engineOn = false);
     void selfPropel(bool engineOn = false, bool selfPropelHandleBarPressedDown = false);
+    float fillGasTank(float newGasAmount); //new member function 3
 };
 
 void LawnMower::cutGrass(bool engineOn, bool engineHandleBarPressedDown)
@@ -161,7 +186,7 @@ void LawnMower::cutGrass(bool engineOn, bool engineHandleBarPressedDown)
     {
         std::cout << std::endl;
         std::cout << "Ready to cut grass." << std::endl;
-        std::cout << "Blade height is set to " << bladeHeight << " inches." << std::endl; //2) printing out something interesting
+        std::cout << "Blade height is set to " << bladeHeight << " inches." << std::endl; 
     }    
 }
 
@@ -178,25 +203,40 @@ void LawnMower::selfPropel(bool engineOn, bool selfPropelHandleBarPressedDown)
     if ((engineOn == true) && (selfPropelHandleBarPressedDown == true))
     {
         std::cout << "Self Propel On." << std::endl;
+        std::cout << std::endl;
     }
     else if ((engineOn == true) && (selfPropelHandleBarPressedDown == false))
     {
         std::cout << "Self Propel off." << std::endl;
+        std::cout << std::endl;
     }
 }
 
+float LawnMower::fillGasTank(float newGasAmount) //new member function 3
+{
+    while (amountOfGas < newGasAmount)
+    { 
+        amountOfGas += 0.25f;
+        std::cout << "Tank is filling: " << amountOfGas << " gallons of gas." << std::endl;
+    }
+    return amountOfGas;
+        
+}
+    
 struct Laptop
 {
     int towerHeight = 13;
-    int numOfFans; //member variable that is not initialized in-class   
-    Laptop() : numOfFans (3) { } // initializing member varibale that was not initailized in-class
+    int numOfFans; 
+    Laptop() : numOfFans (3) { } 
     int amountOfRam = 16;
     int numOfUSBPorts = 6; 
-    int numOfKeys { 120 }; // member variable initialized in-class
+    int numOfKeys { 120 }; 
 
     void typeLetter(bool isLetterKeyPressed);
     int productOfNumbers(int num1, int num2);
     void runSoftware(bool hasDoubleClickedIcon);
+    int increaseRam(int newRam); //new member function 4
+    
 };
 
 void Laptop::typeLetter(bool isLetterKeyPressed)
@@ -205,7 +245,7 @@ void Laptop::typeLetter(bool isLetterKeyPressed)
     {
         char letterPressed = 'B';
         std::cout << std::endl;
-        std::cout << "Out of " << numOfKeys << " keys, you pressed the letter " << letterPressed << "." << std::endl; //2) printing out something interesting
+        std::cout << "Out of " << numOfKeys << " keys, you pressed the letter " << letterPressed << "." << std::endl; 
     }
 }
 
@@ -221,21 +261,35 @@ void Laptop::runSoftware(bool hasDoubleClickedIcon)
     if (hasDoubleClickedIcon == true)
     {
         std::cout << "Software Running." << std::endl; 
+        std::cout << std::endl;
     }   
+}
+
+int Laptop::increaseRam(int addNewRam) //new member function 4
+{
+    for(int i = amountOfRam; i < addNewRam; ++i)
+    {
+        amountOfRam += 4;
+        std::cout << "Increasing RAM to: " << amountOfRam << std::endl;
+        if( amountOfRam >= addNewRam)
+        return amountOfRam;
+    }
+    return amountOfRam;
 }
 
 struct NuclearPowerPlant
 { 
     float amountOfWaterUsed = 375.5f;
-    float tempOfWater; //member variable that is not initialized in-class   
-    NuclearPowerPlant() : tempOfWater (284.8f) { } // initializing member varibale that was not initailized in-class
-    int numOfGenerators { 3 }; // member variable initialized in-class
+    float tempOfWater;  
+    NuclearPowerPlant() : tempOfWater (284.8f) { } 
+    int numOfGenerators { 3 };
     float weightOfGenerators = 389.79f;
     int numOfEngineers = 100;
 
     void produceHeat(bool isFissionSuccessful);
     void generateSteam(bool tubesReachedNeededTemp);
     void produceElectricity(bool isGeneratorReceivingSteam);
+    int addMoreGenerators( int generatorsAdded); //new member function 5
 };
 
 void NuclearPowerPlant::produceHeat(bool isFissionSuccessful)
@@ -244,7 +298,7 @@ void NuclearPowerPlant::produceHeat(bool isFissionSuccessful)
     {
         std::cout << std::endl;
         std::cout << "It's getting hot!" << std::endl;
-        std::cout << "The water temperature is " << tempOfWater << "F." << std::endl; //2) printing out something interesting
+        std::cout << "The water temperature is " << tempOfWater << "F." << std::endl; 
     }
 }
 
@@ -261,35 +315,48 @@ void NuclearPowerPlant::produceElectricity(bool isGeneratorReceivingSteam)
     if (isGeneratorReceivingSteam)
     {
         std::cout << "Producing elctricity." << std::endl;
+        std::cout << std::endl;
     }
+}
+
+int NuclearPowerPlant::addMoreGenerators(int generatorsAdded) //new member function 5
+{
+    while(numOfGenerators < generatorsAdded)
+    {
+        numOfGenerators += 1;
+        std::cout << "Adding more genertors: " << numOfGenerators << std::endl;    
+    }
+    return numOfGenerators;
 }
 
 struct Airplane
 {
-    int numOfPassengerSeats;//member variable that is not initialized in-class
-    Airplane() : numOfPassengerSeats (180) { } // initializing member varibale that was not initailized in-class
+    int numOfPassengerSeats;
+    Airplane() : numOfPassengerSeats (180) { }
     float totalWeightOfPlane = 92354.67f;
-    float lengthOfPlaneWings { 33.5f }; // member variable initialized in-class
+    float lengthOfPlaneWings { 33.5f }; 
     int numOfLuggagePieces = 225;
     int amountOfFuel = 20000;
 
     struct Cockpit
     { 
-        int numOfSwitches { 30 }; // member variable initialized in-class
+        int numOfSwitches { 30 }; 
         int numOfDisplays = 8;
         int numOfFlightControllers = 2;
         int numOfRudderPedals = 4;
-        int numOfPilots; //member variable that is not initialized in-class
-        Cockpit() : numOfPilots (2) { } // initializing member varibale that was not initailized in-class
+        int numOfPilots; 
+        Cockpit() : numOfPilots (2) { } 
 
         int turnPlane(int degreesTurned);
         void landingGearRaised(bool isGearLeverInUpPostion);
         void talkToAirTrafficControl(bool isPushToTalkSwitchPressed);
+        int addMoreDisplays(int displayTotal); //new member function 6
     };
 
     void takeOff(bool isRunwayClear, bool isTakeOffSpeedReached);
     void land(bool isLandingSpeedReached, bool areWheelsDeployed);
-    void sendDataToControlTower(bool isGreenLightOn); 
+    void sendDataToControlTower(bool isGreenLightOn);
+    int  increaseTotalLuggage(int totalLuggage); //new member function 7
 };
 
 int Airplane::Cockpit::turnPlane(int degreesTurned)
@@ -313,7 +380,18 @@ void Airplane::Cockpit::talkToAirTrafficControl(bool isPushToTalkSwitchPressed)
     if(isPushToTalkSwitchPressed)
     {
         std::cout << "Ready to talk." << std::endl;
+        std::cout << std::endl;
     }
+}
+
+int Airplane::Cockpit::addMoreDisplays(int displayTotal) //new member function 6
+{
+    while(numOfDisplays < displayTotal)
+    {
+        numOfDisplays += 1;
+        std::cout <<"Increasing number of displays "<< numOfDisplays << std::endl;   
+    }
+    return numOfDisplays;
 }
 
 void Airplane::takeOff(bool isRunwayClear, bool isTakeOffSpeedReached)
@@ -322,7 +400,7 @@ void Airplane::takeOff(bool isRunwayClear, bool isTakeOffSpeedReached)
     {
         std::cout << std::endl;
         std::cout << "Ready for takeoff!" << std::endl;
-        std::cout << "We only have " << numOfPassengerSeats - 20 << " passenger seats filled." << std::endl; //2) printing out something interesting
+        std::cout << "We only have " << numOfPassengerSeats - 20 << " passenger seats filled." << std::endl; 
     }  
 }
 
@@ -339,21 +417,33 @@ void Airplane::sendDataToControlTower(bool isGreenLightOn)
     if (isGreenLightOn == false)
     {
         std::cout << "Data is not being sent to control." << std::endl;
+        std::cout << std::endl;
     }
+}
+
+int Airplane::increaseTotalLuggage(int totalLuggage) //new member function 7
+{
+    for(int i = numOfLuggagePieces; i < totalLuggage; ++i)
+    {
+        numOfLuggagePieces += 1;
+        std::cout << " Increasing luggage to " << numOfLuggagePieces << std::endl;  
+    }
+    return numOfLuggagePieces;
 }
 
 struct Hangar
 {
     float hangarSize = 8000.0f;
-    int numOfPlanes; //member variable that is not initialized in-class
-    Hangar() : numOfPlanes (3) { } // initializing member varibale that was not initailized in-class
+    int numOfPlanes; 
+    Hangar() : numOfPlanes (3) { } 
     int numOfMaintenanceEmployees = 100;
-    int numOfAircraftJacks { 12 }; //member variable initialized in-class
+    int numOfAircraftJacks { 12 }; 
     int maxHeightOfMaintenancePlatform = 12;
 
     void washPlane(int numOfEmployeesWashing, int hrsNeededToWashPlane);
     void routinePlaneMaintenance(int hrsNeededtoPerformMaintenance, int numOfEmployeesPerformingMaintenace);
     void installEngine(int numOfEmployeesInstallEngine, int hrsNeededToInstallEngine);
+    int decreaseMaxHeightOfPlatform(int newMaxHeightOfPlatform);  //new member function 8
 };
 
 void Hangar::washPlane(int numOfEmployeesWashing, int hrsNeededToWashPlane)
@@ -361,7 +451,7 @@ void Hangar::washPlane(int numOfEmployeesWashing, int hrsNeededToWashPlane)
     if ((numOfEmployeesWashing >= 5) && (hrsNeededToWashPlane <= 7))
     {
         std::cout << std::endl;
-        std::cout << "All " << numOfPlanes << " planes can be washed." << std::endl; //2) printing out something interesting
+        std::cout << "All " << numOfPlanes << " planes can be washed." << std::endl;
     }
     else
     {
@@ -387,25 +477,37 @@ void Hangar::installEngine(int numOfEmployeesInstallEngine, int hrsNeededToInsta
     if ((numOfEmployeesInstallEngine >= 5) && (hrsNeededToInstallEngine <= 10))
     {
         std::cout << "Please install engine." << std::endl;
+        std::cout << std::endl;
     }
     else
     {
+        std::cout << std::endl;
         std::cout << "Do not install engine." << std::endl;
     }      
 }
 
+int Hangar::decreaseMaxHeightOfPlatform(int newMaxHeightOfPlatform) //new member function 8
+{
+    while(maxHeightOfMaintenancePlatform > newMaxHeightOfPlatform)
+    {
+        maxHeightOfMaintenancePlatform -= 1;
+        std::cout << "Decreaseing height of platform to " <<  maxHeightOfMaintenancePlatform << " feet." << std::endl;
+    }
+    return  maxHeightOfMaintenancePlatform;
+}
 struct ParkingLot
 {
     int numOfCars = 3000; 
     int numOfParkingPasses = 2687;
     float sizeOfParkingLot = 12.3f;
-    int numOfParkingSpaces { 3500 }; // member variable initialized in-class
-    int numOfParkingLotExits; //member variable that is not initialized in-class
-    ParkingLot() : numOfParkingLotExits (5) { } // initializing member varibale that was not initailized in-class
+    int numOfParkingSpaces { 3500 }; 
+    int numOfParkingLotExits; 
+    ParkingLot() : numOfParkingLotExits (5) { } 
 
     void parkCars(bool isOpenParkingSpace);
     void purchaseParking (bool isParkingPaid);
     void liftBarrierArm(bool isTicketButtonPressed);
+    int increaseParkingPasses(int totalParkingPasses); //new member function 9
 };
 
 void ParkingLot::parkCars(bool isOpenParkingSpace)
@@ -419,7 +521,7 @@ void ParkingLot::parkCars(bool isOpenParkingSpace)
     {
         std::cout << std::endl;
         std::cout << "Can't park cars here." << std::endl;
-        std::cout << "All " << numOfParkingSpaces << " parking spaces are filled." << std::endl; //2) printing out something interesting
+        std::cout << "All " << numOfParkingSpaces << " parking spaces are filled." << std::endl; 
     }    
 }
 
@@ -436,21 +538,34 @@ void ParkingLot::liftBarrierArm(bool isTicketButtonPressed)
     if (isTicketButtonPressed)
     {
         std::cout << "Barrier lifted." << std::endl;
+        std::cout << std::endl;
     }       
+}
+
+int ParkingLot::increaseParkingPasses(int totalParkingPasses) //new member function 9
+{
+    while(numOfParkingPasses < totalParkingPasses)
+    {
+        numOfParkingPasses += 1;
+        std::cout << "Total new parking passes: " << numOfParkingPasses << std::endl;
+
+    }
+    return numOfParkingPasses;
 }
 
 struct ControlTower
 {
     int numOfWindows = 40;
-    int numOfAirTarfficControllers; //member variable that is not initialized in-class
-    ControlTower() : numOfAirTarfficControllers (8) { } // initializing member varibale that was not initailized in-class
+    int numOfAirTarfficControllers; 
+    ControlTower() : numOfAirTarfficControllers (8) { } 
     float controlTowerHeight = 369.5f;
     int numOfDisplays = 50;
-    int numOfRadars { 2 }; // member variable initialized in-class
+    int numOfRadars { 2 }; 
 
     void provideAirplaneGateClearance(bool hasSentPushBackClearence, int timeToPushBackFromGate);
     std::string monitorPlaneFlight(float planeSpeed, std::string directionOfMovement);
     void clearPlaneForLanding(bool hasSentLandingClearance, bool hasReachedLandingSpeed);
+    int hireNewAirTraffiControllers (int newAirTrafficController); //new member function 10
 };
 
 void ControlTower::provideAirplaneGateClearance(bool hasSentPushBackClearence, int timeToPushBackFromGate)
@@ -463,7 +578,7 @@ void ControlTower::provideAirplaneGateClearance(bool hasSentPushBackClearence, i
     else
     {
         std::cout << std::endl;
-        std::cout << "Airplane can't clear gate because " << numOfRadars - 1 << " radar is down." << std::endl; //2) printing out something interesting
+        std::cout << "Airplane can't clear gate because " << numOfRadars - 1 << " radar is down." << std::endl;
     }
 }
 
@@ -479,21 +594,33 @@ void ControlTower::clearPlaneForLanding(bool hasSentLandingClearance, bool hasRe
     if ((hasSentLandingClearance == true) && (hasReachedLandingSpeed == true))
     {
         std::cout << "Airplane is ready for landing." << std::endl;
+        std::cout << std::endl;
     }
 }
 
+int ControlTower::hireNewAirTraffiControllers (int newAirTrafficControllers) //new member function 10
+{
+    for(int i = numOfAirTarfficControllers; i < newAirTrafficControllers; ++i)
+    {
+        numOfAirTarfficControllers += 1;
+        std::cout << "Total air traffic controllers: " << numOfAirTarfficControllers << std::endl;
+        
+    }
+    return numOfAirTarfficControllers;
+}
 struct TerminalBuilding
 {
-    int numOfTerminals { 2 }; // member variable initialized in-class
-    int numOfTicketCounters; //member variable that is not initialized in-class
-    TerminalBuilding() : numOfTicketCounters (15) { } // initializing member varibale that was not initailized in-class
-    int numofTSAEmplyees = 100;
+    int numOfTerminals { 2 }; 
+    int numOfTicketCounters;
+    TerminalBuilding() : numOfTicketCounters (15) { }
+    int numOfTSAEmployees = 100;
     int numOfSecurityCheckpoints = 10;
     int numOfGates = 120;
 
     float chargeBaggageFee(float numOfBags, float costPerBag);
     void purchaseTicket(bool isTicketPaid = false);
     void screenPassengersForSecurity(bool didPassengerWalkThorughImageDetector, bool wasAnythingDetected);
+    int increaseTotalTerminals(int newTerminals); //new member function 11
 };
 
 float TerminalBuilding::chargeBaggageFee(float numOfBags, float costPerBag)
@@ -508,7 +635,7 @@ void TerminalBuilding::purchaseTicket(bool isTicketPaid)
 {
     if (isTicketPaid)
     {
-        std::cout << "Ticket purchased at one of " << numOfTicketCounters << " ticket counters." << std::endl; //2) printing out something interesting
+        std::cout << "Ticket purchased at one of " << numOfTicketCounters << " ticket counters." << std::endl;
     }
 }
 
@@ -521,13 +648,25 @@ void TerminalBuilding::screenPassengersForSecurity(bool didPassengerWalkThorughI
     else if ((didPassengerWalkThorughImageDetector == true) && (wasAnythingDetected == true))
     {
         std::cout << "Wait here." << std::endl;
+        std::cout << std::endl;
     }
     else
     {
         std::cout << "Error." << std::endl;
+        std::cout << std::endl;
     }      
 }
-    
+
+int TerminalBuilding::increaseTotalTerminals(int newTerminals) //new member function 11
+{
+    for( int i = numOfTerminals; numOfTerminals < newTerminals; ++i)
+    {
+        numOfTerminals += 1;
+        std::cout << "Increasing number of terminals: " << numOfTerminals << std::endl; 
+    }
+    return numOfTerminals;
+}
+
 struct Airport
 {
     Airport();
@@ -540,6 +679,7 @@ struct Airport
     void openRestaurant(int PriceOfRestaurant, int spaceNeededForRestaurant);
     void passengerReachDestination(std::string passengerTicketDestination, std::string planeLandedAtDestination);
     float buyRadars(float priceOfRadar, float numOfRadars);
+    int addTSAEmployees (int totalTSAEmployees); //new member function 12
 };
 
 void Airport::openRestaurant(int PriceOfRestaurant, int spaceNeededForRestaurant)
@@ -575,13 +715,23 @@ void Airport::passengerReachDestination(std::string passengerTicketDestination, 
 
 float Airport::buyRadars(float priceOfRadar, float numOfRadars)
 {
-    std::cout << "We lost " << controlTower.numOfRadars - 1 << " radar and need to buy another one." << std::endl; //2) printing out something interesting  
+    std::cout << "We lost " << controlTower.numOfRadars - 1 << " radar and need to buy another one." << std::endl;   
     float totalRadarCost = priceOfRadar * numOfRadars;
     std::string radarTotalCost = std::to_string(totalRadarCost);
     std::cout << "Total cost for radars:$ " + radarTotalCost << "." << std::endl;
+    std::cout << std::endl;
     return totalRadarCost;
 }
-    
+
+int Airport::addTSAEmployees (int totalTSAEmployees) //new member function 12
+{
+    while(terminalBuilding.numOfTSAEmployees < totalTSAEmployees)
+    {
+        terminalBuilding.numOfTSAEmployees += 1;
+        std::cout << "Adding new TSA employees: " <<  terminalBuilding.numOfTSAEmployees << std::endl;
+    }
+    return  terminalBuilding.numOfTSAEmployees;
+}
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -617,50 +767,62 @@ int main()
     cookieShop.bakeCookies(true);
     cookieShop.calculateTotalCustomerCharge(2.00f, 4.00f);
     cookieShop.buyNewOven(newOven1);
+    cookieShop.hireNewStaff(12);
 
     newOven1.produceHeat(true);
     newOven1.displayTimer("10:00");
     newOven1.displayTemp("400F");
+    newOven1.lowerTemp(430);
 
     lawnMower.cutGrass(true, true);
     lawnMower.consumeGas(true);
     lawnMower.selfPropel(true, false);
+    lawnMower.fillGasTank(4.00f);
 
     laptop.typeLetter(true );
     laptop.productOfNumbers(5, 6);
     laptop.runSoftware(true);
+    laptop.increaseRam(32);
 
     nucPlant.produceHeat(true);
     nucPlant.generateSteam(true);
     nucPlant.produceElectricity(true);
+    nucPlant.addMoreGenerators(7);
 
     airplane.takeOff(true, true);
     airplane.land(true, true);
     airplane.sendDataToControlTower(false);
+    airplane.increaseTotalLuggage(228);
 
     cockpit.turnPlane(25);
     cockpit.landingGearRaised(true);
     cockpit.talkToAirTrafficControl(true);
+    cockpit.addMoreDisplays(11);
 
     hangar.washPlane(6, 6);
     hangar.routinePlaneMaintenance(3, 2);
     hangar.installEngine(7, 8);
+    hangar.decreaseMaxHeightOfPlatform(10);
 
     parkingLot.parkCars(false);
     parkingLot.purchaseParking(true);
     parkingLot.liftBarrierArm(true);
+    parkingLot.increaseParkingPasses(2690);
 
     controlTower.provideAirplaneGateClearance(false, 1700);
     controlTower.monitorPlaneFlight(900, "North");
     controlTower.clearPlaneForLanding(true, true);
+    controlTower.hireNewAirTraffiControllers(11);
 
     termBuilding.chargeBaggageFee(2.0f, 50);
     termBuilding.purchaseTicket(true);
     termBuilding.screenPassengersForSecurity(true, true);
+    termBuilding.increaseTotalTerminals(5);
 
     airport.openRestaurant(400000, 2500);
     airport.passengerReachDestination("Boston", "New York");
     airport.buyRadars(500000, 3);
+    airport.addTSAEmployees (103);
 
     std::cout <<"\nYou have " << lawnMower.amountOfGas << " gallons of gas." << std::endl;
     std::cout <<"There are " << termBuilding.numOfSecurityCheckpoints << " security checkpoints." << std::endl;
