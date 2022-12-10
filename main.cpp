@@ -159,7 +159,7 @@ int CookieShop::hireNewStaff(int totalStaffNeeded) //new member function 2
 {
     for(int i = numberOfStaff; i <= totalStaffNeeded; ++i)
     {
-        numberOfStaff += 1;
+        ++numberOfStaff;
         std::cout << "Increasing staff: " << numberOfStaff << std::endl;     
     }   
     return numberOfStaff;
@@ -272,7 +272,7 @@ int Laptop::increaseRam(int addNewRam) //new member function 4
         amountOfRam += 4;
         std::cout << "Increasing RAM to: " << amountOfRam << std::endl;
         if( amountOfRam >= addNewRam)
-        return amountOfRam;
+            return amountOfRam;
     }
     return amountOfRam;
 }
@@ -323,7 +323,7 @@ int NuclearPowerPlant::addMoreGenerators(int generatorsAdded) //new member funct
 {
     while(numOfGenerators < generatorsAdded)
     {
-        numOfGenerators += 1;
+        ++numOfGenerators;
         std::cout << "Adding more genertors: " << numOfGenerators << std::endl;    
     }
     return numOfGenerators;
@@ -388,7 +388,7 @@ int Airplane::Cockpit::addMoreDisplays(int displayTotal) //new member function 6
 {
     while(numOfDisplays < displayTotal)
     {
-        numOfDisplays += 1;
+        ++numOfDisplays;
         std::cout <<"Increasing number of displays "<< numOfDisplays << std::endl;   
     }
     return numOfDisplays;
@@ -425,7 +425,7 @@ int Airplane::increaseTotalLuggage(int totalLuggage) //new member function 7
 {
     for(int i = numOfLuggagePieces; i < totalLuggage; ++i)
     {
-        numOfLuggagePieces += 1;
+        ++numOfLuggagePieces;
         std::cout << " Increasing luggage to " << numOfLuggagePieces << std::endl;  
     }
     return numOfLuggagePieces;
@@ -490,7 +490,7 @@ int Hangar::decreaseMaxHeightOfPlatform(int newMaxHeightOfPlatform) //new member
 {
     while(maxHeightOfMaintenancePlatform > newMaxHeightOfPlatform)
     {
-        maxHeightOfMaintenancePlatform -= 1;
+        --maxHeightOfMaintenancePlatform;
         std::cout << "Decreaseing height of platform to " <<  maxHeightOfMaintenancePlatform << " feet." << std::endl;
     }
     return  maxHeightOfMaintenancePlatform;
@@ -546,7 +546,7 @@ int ParkingLot::increaseParkingPasses(int totalParkingPasses) //new member funct
 {
     while(numOfParkingPasses < totalParkingPasses)
     {
-        numOfParkingPasses += 1;
+        ++numOfParkingPasses;
         std::cout << "Total new parking passes: " << numOfParkingPasses << std::endl;
 
     }
@@ -602,7 +602,7 @@ int ControlTower::hireNewAirTraffiControllers (int newAirTrafficControllers) //n
 {
     for(int i = numOfAirTarfficControllers; i < newAirTrafficControllers; ++i)
     {
-        numOfAirTarfficControllers += 1;
+        ++numOfAirTarfficControllers;
         std::cout << "Total air traffic controllers: " << numOfAirTarfficControllers << std::endl;
         
     }
@@ -661,7 +661,7 @@ int TerminalBuilding::increaseTotalTerminals(int newTerminals) //new member func
 {
     for( int i = numOfTerminals; numOfTerminals < newTerminals; ++i)
     {
-        numOfTerminals += 1;
+        ++numOfTerminals;
         std::cout << "Increasing number of terminals: " << numOfTerminals << std::endl; 
     }
     return numOfTerminals;
@@ -727,7 +727,7 @@ int Airport::addTSAEmployees (int totalTSAEmployees) //new member function 12
 {
     while(terminalBuilding.numOfTSAEmployees < totalTSAEmployees)
     {
-        terminalBuilding.numOfTSAEmployees += 1;
+        ++terminalBuilding.numOfTSAEmployees;
         std::cout << "Adding new TSA employees: " <<  terminalBuilding.numOfTSAEmployees << std::endl;
     }
     return  terminalBuilding.numOfTSAEmployees;
